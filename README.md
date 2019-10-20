@@ -35,7 +35,19 @@ A **Basic mockup** of this app made with Figma [can be found here](https://www.f
 
 ### Who are the evil minds behind all this?
 We are two undergraduate students:
-- [heitorado](https://github.com/heitorado), who takes care of UI, Services, and crappy puns.
-- [rafaelmotaalves](https://github.com/rafaelmotaalves), who takes care of Database, System Architecture and filtering bad ideas.
+  - [heitorado](https://github.com/heitorado), who takes care of:
+    - Alarms feature
+    - Dashboard 'Sunscreen?' component
+    - Dashboard 'Temperature Comparative' component
+    - Dashboard 'Life suggestions' component
+    - Dashboard components settings and general app settings
+    - crappy puns.
+  - [rafaelmotaalves](https://github.com/rafaelmotaalves), who takes care of:
+    - Component Structure
+    - Dashboard '5 Days Temperature variation graph' component
+    - Dashboard 'Dress recommendation' component
+    - Dashboard 'Umbrella?' component
+    - Dashboard 'Jokes and Quotes' component
+    - pun filtering.
 
 But all in all, everybody does a little bit of this and a little bit of that.
