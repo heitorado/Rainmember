@@ -30,6 +30,8 @@ We aim for simplicity. The app consists on one main screen with two tabs: *Alarm
     - Good day to stay at home with a ice cream bucket and Netflix movies?
     - and more!
    - Also jokes and daily quotes. Developers are funny people, sometimes. 
+   
+A **Basic mockup** of this app made with Figma [can be found here](https://www.figma.com/file/5KFdTomAKWkmaHEiahPYmx/Rainmember?node-id=0%3A1), also with a [prototype](https://www.figma.com/proto/5KFdTomAKWkmaHEiahPYmx/Rainmember?node-id=1%3A6&scaling=scale-down)
 
 ### Who are the evil minds behind all this?
 We are two undergraduate students:
