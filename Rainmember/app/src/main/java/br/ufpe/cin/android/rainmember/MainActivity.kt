@@ -2,9 +2,8 @@ package br.ufpe.cin.android.rainmember
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import com.google.android.material.navigation.NavigationView
+import br.ufpe.cin.android.rainmember.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
