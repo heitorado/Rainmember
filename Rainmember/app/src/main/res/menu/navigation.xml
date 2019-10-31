@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:title="@string/navigation_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:textSize="25sp"
+        />
+
+    <item
+        android:id="@+id/navigation_alarms"
+        android:title="@string/navigation_alarms"
+        android:icon="@drawable/ic_alarm"
+        android:textSize="25sp"
+        />
+
+</menu>
