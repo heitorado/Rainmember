@@ -19,6 +19,6 @@ fun dataComponentFactory (sharedPreferences: SharedPreferences?): List<Fragment>
 }
 
 private fun isActive (sharedPreferences: SharedPreferences, prefKey: String): Boolean {
-        return sharedPreferences.getBoolean(UmbrellaComponent.PREFERENCE_KEY, true)
+        return sharedPreferences.getBoolean(prefKey, true)
 }
 
