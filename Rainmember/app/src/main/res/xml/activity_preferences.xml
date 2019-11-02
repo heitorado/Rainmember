@@ -1,0 +1,9 @@
+
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreference
+        app:key="@string/umbrella_preference"
+        app:title="@string/umbrella_component"
+        />
+</androidx.preference.PreferenceScreen>

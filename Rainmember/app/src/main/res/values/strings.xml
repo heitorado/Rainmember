@@ -3,6 +3,10 @@
     <string name="navigation_dashboard">Dashboard</string>
     <string name="navigation_alarms">Alarms</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="umbrella_preference">UMBRELLA_PREFERENCE</string>
+    <string name="umbrella_component">Should i bring an umbrella?</string>
+
+
+    <string name="dashboard_change">DASHBOARD_CHANGE</string>
+    <string name="action_settings">Settings</string>
 </resources>

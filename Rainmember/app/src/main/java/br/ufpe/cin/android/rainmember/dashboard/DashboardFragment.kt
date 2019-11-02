@@ -1,21 +1,20 @@
 package br.ufpe.cin.android.rainmember.dashboard
 
-
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import br.ufpe.cin.android.rainmember.AlarmsFragment
+import br.ufpe.cin.android.rainmember.PreferencesActivity
 import br.ufpe.cin.android.rainmember.R
+import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
 class DashboardFragment : Fragment() {
 
     companion object {
         const val TAG = "DashboardFragment"
-        const val DASHBOARD_PREFERENCES = "DASHBOARD_PREFERENCES"
     }
 
     private var dataComponents = emptyList<Fragment>()
@@ -26,25 +25,40 @@ class DashboardFragment : Fragment() {
     ): View? {
         Log.d(TAG, "Created")
 
-        val sharedPrefs = context?.getSharedPreferences(DASHBOARD_PREFERENCES, Context.MODE_PRIVATE)
+        dataComponents = dataComponentFactory(context)
 
-        dataComponents = dataComponentFactory(sharedPrefs)
+        addComponents()
 
+        val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+
+        view.action_settings.setOnClickListener {
+            val intent = Intent(context, PreferencesActivity::class.java)
+
+            startActivity(intent)
+        }
+
+        return view
+    }
+
+    private fun addComponents () {
         val fragmentTransaction = fragmentManager?.beginTransaction()
         for (dataComponent in dataComponents) {
             fragmentTransaction?.add(R.id.component_container, dataComponent)
-        }
-        fragmentTransaction?.commit()
 
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        }
+        fragmentTransaction?.commitAllowingStateLoss()
     }
 
-    override fun onDestroy() {
+    private fun destroyComponents () {
         val fragmentTransaction = fragmentManager?.beginTransaction()
         for (dataComponent in dataComponents) {
             fragmentTransaction?.remove(dataComponent)
         }
-        fragmentTransaction?.commit()
+        fragmentTransaction?.commitAllowingStateLoss()
+    }
+
+    override fun onDestroy() {
+        destroyComponents()
 
         super.onDestroy()
     }
