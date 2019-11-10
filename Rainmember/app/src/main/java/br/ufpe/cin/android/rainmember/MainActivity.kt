@@ -84,10 +84,9 @@ class MainActivity : AppCompatActivity() {
     private fun setUpDataWorker () {
         val workManager = WorkManager.getInstance(applicationContext)
 
-
         val workRequests = workManager.getWorkInfosByTag(FETCH_DATA_JOB).get()
 
-        //if (workRequests == null || workRequests.size == 0) {
+        if (workRequests == null || workRequests.size == 0) {
 
             val fetchDataRequest = PeriodicWorkRequest.Builder(
                 WeatherDataWorker::class.java,
@@ -98,7 +97,7 @@ class MainActivity : AppCompatActivity() {
                 .build()
 
             workManager.enqueue(fetchDataRequest)
-        //}
+        }
     }
 
     private fun setUpPermissions () {

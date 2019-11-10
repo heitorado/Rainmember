@@ -4,6 +4,7 @@ import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import java.util.*
 
 private const val API_URL = "https://api.openweathermap.org/data/2.5/"
 
@@ -64,11 +65,15 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
         val minimumTemperature = mainData.getDouble("temp_min")
 
         return WeatherData(
-            temperature = temperature,
-            maxTemperature = maximumTemperature, minTemperature = minimumTemperature,
+            temperature = toCelsius(temperature),
+            maxTemperature = toCelsius(maximumTemperature),
+            minTemperature = toCelsius(minimumTemperature),
             humidity = humidity,
-            condition = condition
+            condition = condition,
+            datetime = Date()
         )
     }
+
+    private fun toCelsius (temp: Double) = temp - 273
 
 }

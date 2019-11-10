@@ -4,12 +4,15 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "br.ufpe.cin.android.rainmember"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -41,7 +44,9 @@ dependencies {
     implementation "androidx.preference:preference-ktx:$preference_version"
     implementation 'androidx.work:work-runtime:2.2.0'
 
-    def room_version = "2.2.0-beta01"
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
+
     implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version" // For Kotlin
+    kapt "androidx.room:room-compiler:$room_version"
 }

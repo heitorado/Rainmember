@@ -8,6 +8,7 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
 import br.ufpe.cin.android.rainmember.data.OpenWeatherApi
 import br.ufpe.cin.android.rainmember.data.WeatherApi
 
@@ -16,7 +17,7 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
         const val TAG = "WeatherDataWorker"
     }
 
-    private val weatherApi: WeatherApi = OpenWeatherApi("")
+    private val weatherApi: WeatherApi = OpenWeatherApi("f7e2860e82d53638f2750f6d4c111890")
 
     override fun doWork(): Result {
         Log.d(TAG, "Fetching data")
@@ -30,6 +31,10 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
             Log.d (TAG, location.longitude.toString())
 
             val data = weatherApi.getCurrentWeather(location.latitude, location.longitude)
+
+            val db = WeatherDataDB.getDatabase(applicationContext)
+
+            db.weatherDataDAO().addWeatherData(data)
         }
 
         return Result.success()
