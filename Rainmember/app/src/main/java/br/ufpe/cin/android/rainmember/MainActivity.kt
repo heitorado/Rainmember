@@ -115,7 +115,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun setNavigationScreen (itemId: Int) {
         val fragmentToBeOpened = when (itemId) {
             R.id.navigation_dashboard -> DashboardFragment()

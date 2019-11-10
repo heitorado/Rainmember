@@ -21,7 +21,7 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
         const val UPDATE_WEATHER_DATA_BROADCAST = "update_weather_data_broadcast"
     }
 
-    private val weatherApi: WeatherApi = OpenWeatherApi("f7e2860e82d53638f2750f6d4c111890")
+    private val weatherApi: WeatherApi = OpenWeatherApi("")
 
     override fun doWork(): Result {
         Log.d(TAG, "Fetching data")
