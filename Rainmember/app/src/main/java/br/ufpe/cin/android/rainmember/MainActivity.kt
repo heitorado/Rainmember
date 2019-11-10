@@ -33,7 +33,12 @@ class MainActivity : AppCompatActivity() {
     private val dashboardChangeReceiver = object: BroadcastReceiver() {
         val intentFilter: IntentFilter
             get() {
-                return IntentFilter(applicationContext.getString(R.string.dashboard_change))
+                val iFilter = IntentFilter()
+
+                iFilter.addAction(applicationContext.getString(R.string.dashboard_change))
+                iFilter.addAction(applicationContext.getString(R.string.weather_data_change))
+
+                return iFilter
             }
 
         override fun onReceive(context: Context?, intent: Intent?) {

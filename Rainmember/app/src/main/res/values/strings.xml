@@ -8,5 +8,6 @@
 
 
     <string name="dashboard_change">DASHBOARD_CHANGE</string>
+    <string name="weather_data_change">WEATHER_DATA_CHANGE</string>
     <string name="action_settings">Settings</string>
 </resources>

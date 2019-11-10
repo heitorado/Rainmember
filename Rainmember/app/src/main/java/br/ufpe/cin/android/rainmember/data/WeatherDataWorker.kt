@@ -2,12 +2,15 @@ package br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.util.Log
 import androidx.core.content.ContextCompat
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
 import br.ufpe.cin.android.rainmember.data.OpenWeatherApi
 import br.ufpe.cin.android.rainmember.data.WeatherApi
@@ -15,6 +18,7 @@ import br.ufpe.cin.android.rainmember.data.WeatherApi
 class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
     companion object {
         const val TAG = "WeatherDataWorker"
+        const val UPDATE_WEATHER_DATA_BROADCAST = "update_weather_data_broadcast"
     }
 
     private val weatherApi: WeatherApi = OpenWeatherApi("f7e2860e82d53638f2750f6d4c111890")
@@ -35,6 +39,10 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
             val db = WeatherDataDB.getDatabase(applicationContext)
 
             db.weatherDataDAO().addWeatherData(data)
+
+            LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(
+                Intent(applicationContext.getString(R.string.weather_data_change))
+            )
         }
 
         return Result.success()
