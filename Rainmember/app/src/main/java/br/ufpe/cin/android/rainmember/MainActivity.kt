@@ -1,7 +1,6 @@
 package br.ufpe.cin.android.rainmember
 
 import android.Manifest
-import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -9,13 +8,13 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.alarm.AlarmsFragment
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.WeatherDataWorker
 import br.ufpe.cin.android.rainmember.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_main.*

@@ -1,4 +1,4 @@
-package br.ufpe.cin.android.rainmember
+package br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.alarm
 
 
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import br.ufpe.cin.android.rainmember.R
 
 class AlarmsFragment : Fragment() {
 
@@ -15,7 +16,8 @@ class AlarmsFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         Log.d(TAG, "Created")
