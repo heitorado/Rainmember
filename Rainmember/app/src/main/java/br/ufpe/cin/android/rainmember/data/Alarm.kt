@@ -9,4 +9,31 @@ class Alarm (
     val alarmTime: Time,
     val alarmDates: Int,
     @PrimaryKey(autoGenerate = true) val id: Int
-)
+) {
+    fun alarmDays(): String {
+        var weekdays = ArrayList<String>(7)
+
+        // Monday
+        if ((1 and alarmDates) != 0) weekdays.add("mon")
+
+        // Tuesday
+        if ((2 and alarmDates) != 0) weekdays.add("tue")
+
+        // Wednesday
+        if ((4 and alarmDates) != 0) weekdays.add("wed")
+
+        // Thursday
+        if ((8 and alarmDates) != 0) weekdays.add("thu")
+
+        // Friday
+        if ((16 and alarmDates) != 0) weekdays.add("fri")
+
+        // Saturday
+        if ((32 and alarmDates) != 0) weekdays.add("sat")
+
+        // Sunday
+        if ((64 and alarmDates) != 0) weekdays.add("sun")
+
+        return weekdays.joinToString(separator = ", ")
+    }
+}
