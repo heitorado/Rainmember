@@ -7,12 +7,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.ufpe.cin.android.rainmember.R
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Alarm
+import kotlinx.android.synthetic.main.fragment_alarms.view.*
+import java.util.ArrayList
 
 class AlarmsFragment : Fragment() {
 
     companion object {
         const val TAG = "AlarmsFragment"
+        var alarmList = ArrayList<Alarm>()
     }
 
     override fun onCreateView(
@@ -20,9 +26,22 @@ class AlarmsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val view = inflater.inflate(R.layout.fragment_alarms, container, false)
+
+        // Floating button that starts the activity for alarm creation
+        view.add_alarm.setOnClickListener {
+            Log.d(TAG, "floating button clicked!")
+        }
+
+        // Set up recyclerView
+        view.alarmRecyclerView.layoutManager = LinearLayoutManager(this.context)
+        view.alarmRecyclerView.adapter = AlarmAdapter(alarmList, this.context!!.applicationContext)
+        view.alarmRecyclerView.addItemDecoration(DividerItemDecoration(this.context, LinearLayoutManager.VERTICAL))
+
         Log.d(TAG, "Created")
 
-        return inflater.inflate(R.layout.fragment_alarms, container, false)
+        return view
     }
 
 
