@@ -22,13 +22,9 @@
             android:id="@+id/add_alarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginRight="10sp"
-            android:layout_marginBottom="10sp"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@mipmap/ic_launcher"
-            android:layout_marginEnd="10sp" />
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_input_add" />
     </FrameLayout>
 
 </LinearLayout>

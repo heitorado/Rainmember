@@ -2,15 +2,13 @@ package br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.alarm
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import br.ufpe.cin.android.rainmember.R
+import br.ufpe.cin.android.rainmember.alarm.CreateAlarmActivity
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Alarm
 import kotlinx.android.synthetic.main.item_alarm.view.*
 
@@ -35,13 +33,13 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
 
             Log.d("AlarmAdapter", "Clicou no alarme")
 
-            //val intnt = Intent(c, ManageAlarmActivity::class.java)
+            //val createAlarmIntent = Intent(c, CreateAlarmActivity::class.java)
 
             // Not really sure why this flag is needed, but it makes the app work as intended.
-            //intnt.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            //createAlarmIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
 
             // Start the new activity with the provided intent and layout
-            //c.startActivity(intnt)
+            //c.startActivity(createAlarmIntent)
         }
     }
 

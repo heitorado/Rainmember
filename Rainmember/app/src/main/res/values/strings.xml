@@ -10,4 +10,5 @@
     <string name="dashboard_change">DASHBOARD_CHANGE</string>
     <string name="weather_data_change">WEATHER_DATA_CHANGE</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_create_alarm">CreateAlarmActivity</string>
 </resources>
