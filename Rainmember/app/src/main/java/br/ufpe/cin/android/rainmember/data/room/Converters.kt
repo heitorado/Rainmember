@@ -14,14 +14,4 @@ class Converters {
     fun dateToTimestamp(date: Date?): Long? {
         return date?.time
     }
-
-    @TypeConverter
-    fun timeToLong(time: Time?): Long? {
-        return time?.time
-    }
-
-    @TypeConverter
-    fun longToTime(value: Long?): Time? {
-        return value?.let { Time(it) }
-    }
 }

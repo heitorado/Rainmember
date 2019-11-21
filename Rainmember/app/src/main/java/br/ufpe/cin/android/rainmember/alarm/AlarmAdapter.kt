@@ -26,8 +26,8 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val i = items[position]
-        holder.alarm_time?.text = i.alarmTime.toString()
-        holder.alarm_days?.text = i.alarmDates.toString()
+        holder.alarm_time?.text = i.alarmTime
+        holder.alarm_days?.text = i.alarmDays()
 
         holder.itemView.alarm_edit.setOnClickListener {
 

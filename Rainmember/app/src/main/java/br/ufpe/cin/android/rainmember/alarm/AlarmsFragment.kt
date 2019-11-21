@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.alarm.CreateAlarmActivity
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Alarm
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.AlarmDB
 import kotlinx.android.synthetic.main.fragment_alarms.view.*
+import org.jetbrains.anko.doAsync
 import java.util.ArrayList
 
 class AlarmsFragment : Fragment() {
@@ -42,6 +44,14 @@ class AlarmsFragment : Fragment() {
             createAlarmIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
 
             ctx.startActivity(createAlarmIntent)
+        }
+
+        // Fetch saved alarms
+        val ctx = view.context.applicationContext
+        doAsync {
+            val db = AlarmDB.getDatabase(ctx)
+            val alarms = db.alarmDAO().getAll()
+            alarmList.addAll(alarms)
         }
 
         // Set up recyclerView

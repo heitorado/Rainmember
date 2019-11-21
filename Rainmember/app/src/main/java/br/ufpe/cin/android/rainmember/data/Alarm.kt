@@ -6,9 +6,10 @@ import java.sql.Time
 @Entity(tableName = "alarm")
 class Alarm (
     val active: Boolean,
-    val alarmTime: Time,
+    val alarmTime: String, //HH:MM format
     val alarmDates: Int,
-    @PrimaryKey(autoGenerate = true) val id: Int
+    @PrimaryKey(autoGenerate = true)
+    var id: Int
 ) {
     fun alarmDays(): String {
         var weekdays = ArrayList<String>(7)
