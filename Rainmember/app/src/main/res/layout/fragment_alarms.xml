@@ -19,7 +19,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/alarmRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="330sp"><!-- this is temporarly hardcoded because I can't fix this goddamn style -->
+                android:layout_height="330sp"><!-- FIXME this is temporarly hardcoded because I can't fix this goddamn style -->
 
             </androidx.recyclerview.widget.RecyclerView>
 
