@@ -51,6 +51,7 @@ class AlarmsFragment : Fragment() {
         doAsync {
             val db = AlarmDB.getDatabase(ctx)
             val alarms = db.alarmDAO().getAll()
+            alarmList.clear()
             alarmList.addAll(alarms)
         }
 

@@ -10,9 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.alarm.CreateAlarmActivity
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Alarm
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.AlarmDB
 import kotlinx.android.synthetic.main.item_alarm.view.*
+import org.jetbrains.anko.doAsync
 
 class AlarmAdapter (private val items: List<Alarm>, private val c: Context): RecyclerView.Adapter<AlarmAdapter.ViewHolder>() {
+
+    companion object {
+        const val TAG = "AlarmAdapter"
+    }
 
     override fun getItemCount(): Int = items.size
 
@@ -28,6 +34,25 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
         val i = items[position]
         holder.alarm_time?.text = i.alarmTime
         holder.alarm_days?.text = i.alarmDays()
+        holder.alarm_toggle.isChecked = i.active
+
+        // Here we set the alarm as active or inactive, updating in the db.
+        holder.itemView.toggle_alarm_on.setOnClickListener {
+            Log.d(TAG, "Switch clicked!")
+
+            // Check for the switch current status
+            val switchStatus = holder.alarm_toggle.isChecked
+
+            // create a new object for db storing
+            val al = Alarm(switchStatus, i.alarmTime, i.alarmDates, i.id)
+
+            doAsync {
+                val db = AlarmDB.getDatabase(c.applicationContext)
+                db.alarmDAO().addAlarm(al)
+
+                //FIXME here we have a bug: the recyclerview keeps fetching for the static list and not for the db, so it needs refreshing for updating all the sliders.
+            }
+        }
 
         holder.itemView.alarm_edit.setOnClickListener {
 
@@ -46,5 +71,6 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
     class ViewHolder (item : View) : RecyclerView.ViewHolder(item) {
         val alarm_time = item.alarm_time_text
         val alarm_days = item.alarm_days_text
+        val alarm_toggle = item.toggle_alarm_on
     }
 }

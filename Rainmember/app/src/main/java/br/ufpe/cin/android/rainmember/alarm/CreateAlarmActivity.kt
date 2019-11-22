@@ -37,8 +37,10 @@ class CreateAlarmActivity : AppCompatActivity() {
             if(validAlarmConfig(view.rootView)){
                 save_alarm_settings(view.rootView)
                 result_text = "Alarm created successfully!"
+                Log.d(TAG, "Alarm created")
             } else {
                 result_text = "Error! Select at least one day of the week!"
+                Log.d(TAG, "Error creating alarm")
             }
 
             Snackbar.make(view, result_text, Snackbar.LENGTH_LONG)
