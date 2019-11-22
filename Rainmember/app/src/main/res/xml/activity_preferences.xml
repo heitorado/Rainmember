@@ -6,4 +6,9 @@
         app:key="@string/umbrella_preference"
         app:title="@string/umbrella_component"
         />
+
+    <SwitchPreference
+        app:key="@string/sunscreen_preference"
+        app:title="@string/sunscreen_component"
+        />
 </androidx.preference.PreferenceScreen>

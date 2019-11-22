@@ -6,7 +6,9 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import br.ufpe.cin.android.rainmember.R
-import kotlin.math.absoluteValue
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.SunscreenFragment
+
+const val TAG = "dataComponentFactory"
 
 fun dataComponentFactory (context: Context?): List<Fragment> {
 
@@ -21,9 +23,17 @@ fun dataComponentFactory (context: Context?): List<Fragment> {
     if (sharedPreferences != null && context != null) {
 
         if (isActive(sharedPreferences, context.getString(R.string.umbrella_preference))) {
-            Log.d ("dataComponentFactory", "Add UmbrellaFragment")
+            Log.d (TAG, "Add UmbrellaFragment")
             result.add(UmbrellaFragment())
         }
+
+        if (isActive(sharedPreferences, context.getString(R.string.sunscreen_preference))) {
+            Log.d (TAG, "Add SunscreenFragment")
+            result.add(SunscreenFragment())
+        }
+
+
+
     }
 
     return result

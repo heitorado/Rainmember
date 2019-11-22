@@ -7,7 +7,6 @@ import androidx.preference.PreferenceFragmentCompat
 import android.content.SharedPreferences
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.preference.PreferenceManager
-import br.ufpe.cin.android.rainmember.R
 
 
 class PreferencesActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
