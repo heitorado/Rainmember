@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15sp">
@@ -10,23 +8,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <com.google.android.material.card.MaterialCardView
-        style="@style/Widget.MaterialComponents.CardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/mtrl_card_spacing"
-        android:layout_marginTop="@dimen/mtrl_card_spacing"
-        android:layout_marginRight="@dimen/mtrl_card_spacing"
-        android:minHeight="200dp"
-        >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Umbrella"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:text="Should you bring an umbrella?" />
 
-            />
-    </com.google.android.material.card.MaterialCardView>
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10sp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/action_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="NO"
+                android:gravity="center"
+                android:textSize="50dp"
+                />
+
+            <ImageView
+                android:id="@+id/action_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:contentDescription="Should you bring an umbrella?"
+                android:background="@drawable/umbrella_no" />
+            
+        </LinearLayout>
+
 
     </LinearLayout>
 

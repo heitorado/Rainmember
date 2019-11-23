@@ -14,7 +14,9 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
 import br.ufpe.cin.android.rainmember.data.WeatherData
+import kotlinx.android.synthetic.main.fragment_umbrella.view.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class UmbrellaFragment : Fragment () {
 
@@ -22,7 +24,11 @@ class UmbrellaFragment : Fragment () {
         const val TAG = "UmbrellaFragment"
     }
 
-    private var weatherData: WeatherData? = null
+    private val bringUmbrellaConditions = listOf(
+        "shower rain",
+        "rain",
+        "thunderstorm"
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,19 +36,29 @@ class UmbrellaFragment : Fragment () {
     ): View? {
         Log.d (TAG, "Created")
 
-        getWeatherData()
+        val view= inflater.inflate(R.layout.fragment_umbrella, container,false)
 
-        return inflater.inflate(R.layout.fragment_umbrella, container,false)
-    }
-
-    fun getWeatherData () {
         doAsync {
             val db = WeatherDataDB.getDatabase(context!!)
 
-            weatherData = db.weatherDataDAO().getLatest()
+            val weatherData = db.weatherDataDAO().getLatest()
 
+            uiThread {
+
+                val weatherCondition = weatherData.condition
+                Log.d (TAG, weatherCondition)
+                if (bringUmbrellaConditions.contains(weatherCondition)) {
+                    view.action_text.text = "YES"
+                    view.action_image.setBackgroundResource(R.drawable.umbrella_yes)
+                }
+
+            }
             Log.d (TAG, weatherData?.temperature.toString())
         }
+
+
+        return view
     }
+
 
 }

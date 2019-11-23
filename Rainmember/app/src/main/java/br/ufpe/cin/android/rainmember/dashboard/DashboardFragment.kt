@@ -44,8 +44,7 @@ class DashboardFragment : Fragment() {
         val fragmentTransaction = fragmentManager?.beginTransaction()
         var index = 1
         for (dataComponent in dataComponents) {
-            val componentId = "component_$index"
-            fragmentTransaction?.add(R.id.component_container, dataComponent, componentId)
+            fragmentTransaction?.add(R.id.component_container, dataComponent, "component_$index")
             index += 1
         }
         fragmentTransaction?.commitAllowingStateLoss()
