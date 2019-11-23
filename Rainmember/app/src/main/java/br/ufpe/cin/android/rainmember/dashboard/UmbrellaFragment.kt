@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
+import br.ufpe.cin.android.rainmember.data.WeatherData
 import org.jetbrains.anko.doAsync
 
 class UmbrellaFragment : Fragment () {
@@ -21,19 +22,27 @@ class UmbrellaFragment : Fragment () {
         const val TAG = "UmbrellaFragment"
     }
 
+    private var weatherData: WeatherData? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         Log.d (TAG, "Created")
 
-        val db = WeatherDataDB.getDatabase(context!!)
-        doAsync {
-            val weatherData = db.weatherDataDAO().getLatest()
-
-            Log.d (TAG, weatherData.temperature.toString())
-        }
+        getWeatherData()
 
         return inflater.inflate(R.layout.fragment_umbrella, container,false)
     }
+
+    fun getWeatherData () {
+        doAsync {
+            val db = WeatherDataDB.getDatabase(context!!)
+
+            weatherData = db.weatherDataDAO().getLatest()
+
+            Log.d (TAG, weatherData?.temperature.toString())
+        }
+    }
+
 }

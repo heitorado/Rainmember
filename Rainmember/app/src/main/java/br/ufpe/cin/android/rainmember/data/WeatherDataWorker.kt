@@ -18,7 +18,6 @@ import br.ufpe.cin.android.rainmember.data.WeatherApi
 class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
     companion object {
         const val TAG = "WeatherDataWorker"
-        const val UPDATE_WEATHER_DATA_BROADCAST = "update_weather_data_broadcast"
     }
 
     private val weatherApi: WeatherApi = OpenWeatherApi("")
