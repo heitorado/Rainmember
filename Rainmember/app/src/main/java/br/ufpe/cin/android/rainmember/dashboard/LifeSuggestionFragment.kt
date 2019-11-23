@@ -28,7 +28,9 @@ class LifeSuggestionFragment : Fragment() {
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()
 
-            Log.d (TAG, weatherData.toString())
+            if (weatherData != null) {
+                Log.d (TAG, weatherData.toString())
+            }
         }
 
         return inflater.inflate(R.layout.fragment_life_suggestions, container,false)
