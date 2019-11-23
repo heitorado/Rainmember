@@ -11,4 +11,9 @@
         app:key="@string/sunscreen_preference"
         app:title="@string/sunscreen_component"
         />
+
+    <SwitchPreference
+        app:key="@string/temp_comp_preference"
+        app:title="@string/temp_comp_component"
+        />
 </androidx.preference.PreferenceScreen>

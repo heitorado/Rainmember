@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.SunscreenFragment
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.TempCompFragment
 
 const val TAG = "dataComponentFactory"
 
@@ -30,6 +31,10 @@ fun dataComponentFactory (context: Context?): List<Fragment> {
         if (isActive(sharedPreferences, context.getString(R.string.sunscreen_preference))) {
             Log.d (TAG, "Add SunscreenFragment")
             result.add(SunscreenFragment())
+        }
+        if (isActive(sharedPreferences, context.getString(R.string.temp_comp_preference))) {
+            Log.d (TAG, "Add TempCompFragment")
+            result.add(TempCompFragment())
         }
 
 

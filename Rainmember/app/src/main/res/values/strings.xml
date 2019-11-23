@@ -9,6 +9,11 @@
     <string name="sunscreen_preference">SUNSCREEN_PREFERENCE</string>
     <string name="sunscreen_component">Sunscreen or not Sunscreen?</string>
 
+    <string name="temp_comp_preference">TEMPERATURE_COMPARISON_PREFERENCE</string>
+    <string name="temp_comp_component">Temperature Comparison</string>
+
+    temp_comp_preference
+
 
 
     <string name="dashboard_change">DASHBOARD_CHANGE</string>
