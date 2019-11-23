@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
+import kotlinx.android.synthetic.main.fragment_sunscreen.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 class SunscreenFragment : Fragment() {
 
@@ -26,7 +28,14 @@ class SunscreenFragment : Fragment() {
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()
 
-            Log.d (TAG, weatherData.temperature.toString())
+            Log.d (TAG, weatherData.condition)
+
+            if(weatherData.condition != "few clouds" && weatherData.condition != "clear sky" && weatherData.condition != "scattered clouds"){
+                uiThread {
+                    it.sunscreen_hint_text.text = "No need for sunscreen, the sun is being nice today!"
+                    it.sunscreen_image.setBackgroundResource(R.drawable.image_sunscreen_no)
+                }
+            }
         }
 
         return inflater.inflate(R.layout.fragment_sunscreen, container,false)

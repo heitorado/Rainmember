@@ -24,15 +24,15 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
     private val weatherApi: WeatherApi = OpenWeatherApi("")
 
     override fun doWork(): Result {
-        Log.d(TAG, "Fetching data")
+        Log.d(TAG, "Fetching data for:")
 
         val locationManager = applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
         if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
 
-            Log.d (TAG, location.latitude.toString())
-            Log.d (TAG, location.longitude.toString())
+            Log.d (TAG, "Lat: ${location.latitude}")
+            Log.d (TAG, "Lon: ${location.longitude}")
 
             val data = weatherApi.getCurrentWeather(location.latitude, location.longitude)
 
