@@ -16,4 +16,9 @@
         app:key="@string/temp_comp_preference"
         app:title="@string/temp_comp_component"
         />
+
+    <SwitchPreference
+        app:key="@string/life_suggestion_preference"
+        app:title="@string/life_suggestion_component"
+        />
 </androidx.preference.PreferenceScreen>

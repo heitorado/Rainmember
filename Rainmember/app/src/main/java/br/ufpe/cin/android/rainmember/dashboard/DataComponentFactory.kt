@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import br.ufpe.cin.android.rainmember.R
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.LifeSuggestionFragment
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.SunscreenFragment
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.TempCompFragment
 
@@ -35,6 +36,10 @@ fun dataComponentFactory (context: Context?): List<Fragment> {
         if (isActive(sharedPreferences, context.getString(R.string.temp_comp_preference))) {
             Log.d (TAG, "Add TempCompFragment")
             result.add(TempCompFragment())
+        }
+        if (isActive(sharedPreferences, context.getString(R.string.life_suggestion_preference))) {
+            Log.d (TAG, "Add LifeSuggestionFragment")
+            result.add(LifeSuggestionFragment())
         }
 
 

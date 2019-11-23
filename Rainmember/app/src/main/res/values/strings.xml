@@ -12,6 +12,9 @@
     <string name="temp_comp_preference">TEMPERATURE_COMPARISON_PREFERENCE</string>
     <string name="temp_comp_component">Temperature Comparison</string>
 
+    <string name="life_suggestion_preference">LIFE_SUGGESTION_PREFERENCE</string>
+    <string name="life_suggestion_component">Life Suggestions</string>
+
     temp_comp_preference
 
 
