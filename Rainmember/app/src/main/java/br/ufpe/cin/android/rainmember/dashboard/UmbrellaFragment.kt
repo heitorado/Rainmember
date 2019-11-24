@@ -43,17 +43,18 @@ class UmbrellaFragment : Fragment () {
 
             val weatherData = db.weatherDataDAO().getLatest()
 
-            uiThread {
+            if(weatherData != null) {
+                uiThread {
+                    val weatherCondition = weatherData.condition
+                    Log.d (TAG, weatherCondition)
 
-                val weatherCondition = weatherData.condition
-                Log.d (TAG, weatherCondition)
-                if (bringUmbrellaConditions.contains(weatherCondition)) {
-                    view.action_text.text = "YES"
-                    view.action_image.setBackgroundResource(R.drawable.umbrella_yes)
+                    if (bringUmbrellaConditions.contains(weatherCondition)) {
+                        view.action_text.text = "YES"
+                        view.action_image.setBackgroundResource(R.drawable.umbrella_yes)
+                    }
                 }
-
+                Log.d (TAG, weatherData.temperature.toString())
             }
-            Log.d (TAG, weatherData?.temperature.toString())
         }
 
 
