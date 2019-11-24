@@ -43,11 +43,13 @@ class OpenUVApi (private val apiKey: String) : WeatherApi {
 
 
         return WeatherData(
+            cityName = "",
             temperature = 0.0,
             maxTemperature = 0.0,
             minTemperature = 0.0,
             humidity = 0.0,
             condition = "",
+            weatherCode = 0,
             datetime = Date(),
             currentUv = currentUv,
             maxUv = maxUv

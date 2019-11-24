@@ -16,11 +16,13 @@ class WeatherDataUpdater : WeatherApi {
         val uvData = uvApi.getCurrentWeather(latitude, longitude)
 
         return WeatherData(
+            cityName = weatherData.cityName,
             temperature = weatherData.temperature,
             maxTemperature = weatherData.maxTemperature,
             minTemperature = weatherData.minTemperature,
             humidity = weatherData.humidity,
             condition = weatherData.condition,
+            weatherCode = weatherData.weatherCode,
             datetime = weatherData.datetime,
             currentUv = uvData.currentUv,
             maxUv = uvData.maxUv

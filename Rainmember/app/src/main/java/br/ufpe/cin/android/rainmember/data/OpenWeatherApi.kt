@@ -56,7 +56,10 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
     private fun jsonToWeatherData(json: JSONObject): WeatherData {
         val weatherInfo = json.getJSONArray("weather").get(0) as JSONObject
 
+        val cityName = json.getString("name")
+
         val condition = weatherInfo.getString("description")
+        val weatherCode = weatherInfo.getInt("id")
 
         val mainData = json.getJSONObject("main")
         val temperature = mainData.getDouble("temp")
@@ -65,11 +68,13 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
         val minimumTemperature = mainData.getDouble("temp_min")
 
         return WeatherData(
+            cityName = cityName,
             temperature = toCelsius(temperature),
             maxTemperature = toCelsius(maximumTemperature),
             minTemperature = toCelsius(minimumTemperature),
             humidity = humidity,
             condition = condition,
+            weatherCode = weatherCode,
             datetime = Date(),
             currentUv = 0.0,
             maxUv = 0.0
