@@ -7,30 +7,69 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/header"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
+        android:id="@+id/currentLocation"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Climate Info Placeholder"
-        android:textSize="36sp"
-        />
+        android:drawableLeft="@drawable/quickinfo_gps_fixed_24px"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@id/currentTemperature"
+        app:layout_constraintEnd_toStartOf="@id/currentWeather"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/quickinfo_gps_fixed_24px" />
+
+    <TextView
+        android:id="@+id/currentTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/quickinfo_thermostat_24px"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toStartOf="@id/currentUv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentLocation"
+        android:drawableStart="@drawable/quickinfo_thermostat_24px" />
+
+    <TextView
+        android:id="@+id/currentWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/quickinfo_cloud_queue_24px"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@id/currentUv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/currentLocation"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableStart="@drawable/quickinfo_cloud_queue_24px" />
+
+    <TextView
+        android:id="@+id/currentUv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/quickinfo_brightness_high_24px"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/currentTemperature"
+        app:layout_constraintTop_toBottomOf="@id/currentWeather"
+        android:drawableStart="@drawable/quickinfo_brightness_high_24px" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@color/colorAccent"
         app:itemTextColor="@color/colorAccent"
-        app:menu="@menu/navigation"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentTemperature"
+        app:menu="@menu/navigation" />
 
     <FrameLayout
         android:id="@+id/app_container"
