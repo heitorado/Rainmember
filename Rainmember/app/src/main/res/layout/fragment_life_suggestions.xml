@@ -25,6 +25,18 @@
             android:layout_margin="10sp"
             android:background="?android:attr/listDivider" />
 
+        <TextView
+            android:id="@+id/life_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="15sp"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="With the current temperature of 32ºC, It’s a great day for going to the beach! Don’t forget your sunscreen!"
+            android:textSize="28sp"
+            app:fontFamily="@font/roboto_light" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
