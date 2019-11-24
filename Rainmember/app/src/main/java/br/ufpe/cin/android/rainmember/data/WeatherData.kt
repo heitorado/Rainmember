@@ -11,10 +11,12 @@ class WeatherData (
     val minTemperature: Double,
     val humidity: Double,
     val condition: String,
+    val currentUv: Double,
+    val maxUv : Double,
     @PrimaryKey val datetime: Date
 ) {
     override fun toString(): String {
-        return "Temperature: $temperature | Max: $maxTemperature | Min: $minTemperature | Humidity: $humidity | Condition: $condition"
+        return "Temperature: $temperature | Max: $maxTemperature | Min: $minTemperature | Humidity: $humidity | Condition: $condition | Current UV: $currentUv | Max UV: $maxUv"
     }
 }
 

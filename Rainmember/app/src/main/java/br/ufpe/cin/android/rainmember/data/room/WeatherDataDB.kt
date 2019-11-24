@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.*
 import br.ufpe.cin.android.rainmember.data.WeatherData
 
-@Database(entities = [WeatherData::class], version = 1)
+@Database(entities = [WeatherData::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class WeatherDataDB : RoomDatabase() {
     abstract fun weatherDataDAO(): WeatherDataDao
@@ -19,7 +19,9 @@ abstract class WeatherDataDB : RoomDatabase() {
                         ctx.applicationContext,
                         WeatherDataDB::class.java,
                         "weatherData.db"
-                    ).build()
+                    )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 }
             }
             return INSTANCE!!

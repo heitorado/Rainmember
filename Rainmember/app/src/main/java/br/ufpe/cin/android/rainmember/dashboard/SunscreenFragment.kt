@@ -28,9 +28,9 @@ class SunscreenFragment : Fragment() {
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()
 
-            Log.d (TAG, weatherData.condition)
+            Log.d (TAG, "${weatherData?.toString()}")
 
-            if(weatherData.condition != "few clouds" && weatherData.condition != "clear sky" && weatherData.condition != "scattered clouds"){
+            if(weatherData?.condition != "few clouds" && weatherData?.condition != "clear sky" && weatherData?.condition != "scattered clouds"){
                 uiThread {
                     it.sunscreen_hint_text.text = "No need for sunscreen, the sun is being nice today!"
                     it.sunscreen_image.setBackgroundResource(R.drawable.image_sunscreen_no)

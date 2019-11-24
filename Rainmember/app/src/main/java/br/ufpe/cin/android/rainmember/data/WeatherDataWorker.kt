@@ -14,13 +14,14 @@ import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
 import br.ufpe.cin.android.rainmember.data.OpenWeatherApi
 import br.ufpe.cin.android.rainmember.data.WeatherApi
+import br.ufpe.cin.android.rainmember.data.WeatherDataUpdater
 
 class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
     companion object {
         const val TAG = "WeatherDataWorker"
     }
 
-    private val weatherApi: WeatherApi = OpenWeatherApi("")
+    private val weatherApi: WeatherApi = WeatherDataUpdater()
 
     override fun doWork(): Result {
         Log.d(TAG, "Fetching data for:")

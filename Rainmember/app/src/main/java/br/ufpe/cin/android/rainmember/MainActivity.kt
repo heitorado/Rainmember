@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val CURRENT_SCREEN = "current_screen"
         const val FETCH_DATA_JOB = "fetch_data_job"
-        const val FETCH_DATA_JOB_INTERVAL: Long = 15
+        const val FETCH_DATA_JOB_INTERVAL: Long = 35
         const val ACCESS_FINE_LOCATION_REQUEST_ID = 1
     }
 

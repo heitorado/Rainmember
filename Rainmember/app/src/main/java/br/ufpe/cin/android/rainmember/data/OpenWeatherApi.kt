@@ -70,7 +70,9 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
             minTemperature = toCelsius(minimumTemperature),
             humidity = humidity,
             condition = condition,
-            datetime = Date()
+            datetime = Date(),
+            currentUv = 0.0,
+            maxUv = 0.0
         )
     }
 

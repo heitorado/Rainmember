@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Alarm
 
-@Database(entities = [Alarm::class], version = 2)
+@Database(entities = [Alarm::class], version = 3)
 abstract class AlarmDB : RoomDatabase() {
     abstract fun alarmDAO(): AlarmDao
 
@@ -21,7 +21,9 @@ abstract class AlarmDB : RoomDatabase() {
                         ctx.applicationContext,
                         AlarmDB::class.java,
                         "alarm.db"
-                    ).build()
+                    )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 }
             }
             return INSTANCE!!
