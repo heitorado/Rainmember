@@ -1,16 +1,9 @@
 package br.ufpe.cin.android.rainmember.data
 
-import android.util.Log
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import org.json.JSONObject
-import java.util.*
-
-class WeatherDataUpdater () : WeatherApi {
+class WeatherDataUpdater : WeatherApi {
 
     private val weatherApi : WeatherApi = OpenWeatherApi("")
     private val uvApi : WeatherApi = OpenUVApi("")
-
 
 
     override fun getWeatherForecast(latitude: Double, longitude: Double): List<WeatherData> {
@@ -32,6 +25,5 @@ class WeatherDataUpdater () : WeatherApi {
             currentUv = uvData.currentUv,
             maxUv = uvData.maxUv
         )
-
     }
 }
