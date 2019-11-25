@@ -54,12 +54,14 @@ class LifeSuggestionFragment : Fragment() {
 
                 Log.d(TAG, weatherData.toString())
 
-                if (beach) suggestions.add("With the current temperature of ${weatherData.temperature}°C and ${weatherData.condition}, It’s a great day for going to the beach! Don’t forget your sunscreen!")
-                if (netflix) suggestions.add("It's ${weatherData.temperature}°C outside and raining. What about making some microwave popcorn (I heard microwaves have a button just for that) and watch something on your favorite streaming platform?")
-                if (bikeOrWalk) suggestions.add("It's not raining and about ${weatherData.temperature}°C outside, temperature which the writer of this recommendation finds pretty comfortable for biking or walking on the park. If you think that too, take that as a suggestion!")
-                if (picnic) suggestions.add("Well, it's ${weatherData.temperature}°C outside and the weather is clear. Why don't you get that checkered towel, a straw basket, fruits, wine, that nice company and go on a picnic?")
-                if (fondue) suggestions.add("${weatherData.temperature}°C and precipitation means just one thing: fondue. Okay, maybe it could mean a thousand other things, but you got it. Just google 'fondue' and give it a try!")
-                if (indoorActivity) suggestions.add("Maybe ${weatherData.temperature}°C is not the best weather for outdoor stuff, but going on indoor activities can be really nice. What about going to a nice restaurant, shopping or even indoor climbing?")
+                val currentTemp = weatherData.temperature.toInt()
+
+                if (beach) suggestions.add("With the current temperature of ${currentTemp}°C and ${weatherData.condition}, It’s a great day for going to the beach! Don’t forget your sunscreen!")
+                if (netflix) suggestions.add("It's ${currentTemp}°C outside and raining. What about making some microwave popcorn (I heard microwaves have a button just for that) and watch something on your favorite streaming platform?")
+                if (bikeOrWalk) suggestions.add("It's not raining and about ${currentTemp}°C outside, temperature which the writer of this recommendation finds pretty comfortable for biking or walking on the park. If you think that too, take that as a suggestion!")
+                if (picnic) suggestions.add("Well, it's ${currentTemp}°C outside and the weather is clear. Why don't you get that checkered towel, a straw basket, fruits, wine, that nice company and go on a picnic?")
+                if (fondue) suggestions.add("${currentTemp}°C and precipitation means just one thing: fondue. Okay, maybe it could mean a thousand other things, but you got it. Just google 'fondue' and give it a try!")
+                if (indoorActivity) suggestions.add("Maybe ${currentTemp}°C is not the best weather for outdoor stuff, but going on indoor activities can be really nice. What about going to a nice restaurant, shopping or even indoor climbing?")
 
 
                 uiThread {
