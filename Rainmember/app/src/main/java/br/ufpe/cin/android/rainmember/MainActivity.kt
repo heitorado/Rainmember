@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -16,8 +17,13 @@ import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.alarm.AlarmsFragment
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.WeatherDataWorker
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
 import br.ufpe.cin.android.rainmember.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.contentView
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +33,20 @@ class MainActivity : AppCompatActivity() {
         const val FETCH_DATA_JOB = "fetch_data_job"
         const val FETCH_DATA_JOB_INTERVAL: Long = 35
         const val ACCESS_FINE_LOCATION_REQUEST_ID = 1
+    }
+
+    private val climateInfoChangeReceiver = object: BroadcastReceiver() {
+        val intentFilter : IntentFilter
+        get() {
+            val iFilter = IntentFilter()
+            iFilter.addAction(applicationContext.getString(R.string.weather_data_change))
+
+            return iFilter
+        }
+
+        override fun onReceive(ctx: Context?, intent: Intent?) {
+            updateClimateInfoSection( applicationContext )
+        }
     }
 
     private val dashboardChangeReceiver = object: BroadcastReceiver() {
@@ -55,6 +75,8 @@ class MainActivity : AppCompatActivity() {
         }
         setContentView(R.layout.activity_main)
 
+        updateClimateInfoSection(applicationContext)
+
         setNavigationScreen(currentScreen)
 
         setUpPermissions()
@@ -71,10 +93,15 @@ class MainActivity : AppCompatActivity() {
 
         LocalBroadcastManager.getInstance(applicationContext)
             .registerReceiver(dashboardChangeReceiver, dashboardChangeReceiver.intentFilter)
+
+        LocalBroadcastManager.getInstance(applicationContext)
+            .registerReceiver(climateInfoChangeReceiver, climateInfoChangeReceiver.intentFilter)
     }
 
     override fun onDestroy() {
         LocalBroadcastManager.getInstance(applicationContext).unregisterReceiver(dashboardChangeReceiver)
+        LocalBroadcastManager.getInstance(applicationContext).unregisterReceiver(climateInfoChangeReceiver)
+
 
         super.onDestroy()
     }
@@ -131,4 +158,19 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commitAllowingStateLoss()
     }
 
+    private fun updateClimateInfoSection( ctx : Context ){
+        doAsync {
+            val db = WeatherDataDB.getDatabase(ctx)
+            val weatherData = db.weatherDataDAO().getLatest()
+
+            if(weatherData != null){
+                uiThread {
+                    currentLocation.text = weatherData.cityName.capitalize() //FIXME this is not capitalizing :(
+                    currentTemperature.text = "${"%.2f".format(Locale.ENGLISH, weatherData.temperature)}°C"
+                    currentUv.text = "%.2f".format(Locale.ENGLISH, weatherData.currentUv)
+                    currentWeather.text = weatherData.condition
+                }
+            }
+        }
+    }
 }
