@@ -24,8 +24,9 @@ class TempCompFragment : Fragment() {
         val db = WeatherDataDB.getDatabase(context!!)
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()
-
-            Log.d (TAG, weatherData.temperature.toString())
+            if(weatherData != null){
+                Log.d (TAG, weatherData.temperature.toString())
+            }
         }
 
         return inflater.inflate(R.layout.fragment_temperature_comparison, container,false)
