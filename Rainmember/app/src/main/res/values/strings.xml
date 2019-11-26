@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Rainmember</string>
+
+    <!-- Navigation -->
     <string name="navigation_dashboard">Dashboard</string>
     <string name="navigation_alarms">Alarms</string>
 
+    <!-- Preference flags and Labels -->
     <string name="umbrella_preference">UMBRELLA_PREFERENCE</string>
     <string name="umbrella_component">Should I bring an umbrella?</string>
 
@@ -15,12 +18,23 @@
     <string name="life_suggestion_preference">LIFE_SUGGESTION_PREFERENCE</string>
     <string name="life_suggestion_component">Life Suggestions</string>
 
-    temp_comp_preference
 
-
-
+    <!-- Broadcast Flags -->
     <string name="dashboard_change">DASHBOARD_CHANGE</string>
     <string name="weather_data_change">WEATHER_DATA_CHANGE</string>
+
+    <!-- Settings -->
     <string name="action_settings">Settings</string>
     <string name="title_activity_create_alarm">CreateAlarmActivity</string>
+
+    <!-- Texts for "Life Suggestion" component -->
+    <string name="life_suggestion_no_data">We don\'t have any idea of the weather conditions at your location, so we can\'t recommend anything. That\'s okay, It\'s not like you depend on us for living or something like that. Just do what you wanna do.</string>
+    <string name="life_suggestion_no_suggestion">We don\'t have any recommendations for now. But know that can do anything you want! Go ahead, the world is yours!</string>
+    <string name="life_suggestion_danger">Okay, so the forecast told us there is a %1$s at your location. Maybe worrying about fancy activities might not be the best thing to do at the moment. We hope you are okay.</string>
+    <string name="life_suggestion_beach">With the current temperature of %1$d°C and %2$s, It\'s a great day for going to the beach! Don\'t forget your sunscreen!</string>
+    <string name="life_suggestion_netflix">It\'s %1$d°C outside and raining. What about making some microwave popcorn (I heard microwaves have a button just for that) and watch something on your favorite streaming platform?</string>
+    <string name="life_suggestion_bike_or_walking">It\'s not raining and about %1$d°C outside, temperature which the writer of this recommendation finds pretty comfortable for biking or walking on the park. If you think that too, take that as a suggestion!</string>
+    <string name="life_suggestion_picnic">Well, it\'s %1$d°C outside and the weather is clear. Why don\'t you get that checkered towel, a straw basket, fruits, wine, that nice company and go on a picnic?</string>
+    <string name="life_suggestion_fondue">%1$d°C and %2$s means just one thing: fondue. Okay, maybe it could mean a thousand other things, but you got it. Just google \'fondue\' and give it a try!</string>
+    <string name="life_suggestion_indoor">Maybe %1$d°C is not the best weather for outdoor stuff, but going on indoor activities can be really nice. What about going to a nice restaurant, shopping or even indoor climbing?</string>
 </resources>

@@ -56,29 +56,28 @@ class LifeSuggestionFragment : Fragment() {
 
                 val currentTemp = weatherData.temperature.toInt()
 
-                if (beach) suggestions.add("With the current temperature of ${currentTemp}°C and ${weatherData.condition}, It’s a great day for going to the beach! Don’t forget your sunscreen!")
-                if (netflix) suggestions.add("It's ${currentTemp}°C outside and raining. What about making some microwave popcorn (I heard microwaves have a button just for that) and watch something on your favorite streaming platform?")
-                if (bikeOrWalk) suggestions.add("It's not raining and about ${currentTemp}°C outside, temperature which the writer of this recommendation finds pretty comfortable for biking or walking on the park. If you think that too, take that as a suggestion!")
-                if (picnic) suggestions.add("Well, it's ${currentTemp}°C outside and the weather is clear. Why don't you get that checkered towel, a straw basket, fruits, wine, that nice company and go on a picnic?")
-                if (fondue) suggestions.add("${currentTemp}°C and precipitation means just one thing: fondue. Okay, maybe it could mean a thousand other things, but you got it. Just google 'fondue' and give it a try!")
-                if (indoorActivity) suggestions.add("Maybe ${currentTemp}°C is not the best weather for outdoor stuff, but going on indoor activities can be really nice. What about going to a nice restaurant, shopping or even indoor climbing?")
+                if (beach) suggestions.add(getString(R.string.life_suggestion_beach, currentTemp, weatherData.condition))
+                if (netflix) suggestions.add(getString(R.string.life_suggestion_netflix, currentTemp))
+                if (bikeOrWalk) suggestions.add(getString(R.string.life_suggestion_bike_or_walking, currentTemp))
+                if (picnic) suggestions.add(getString(R.string.life_suggestion_picnic, currentTemp))
+                if (fondue) suggestions.add(getString(R.string.life_suggestion_fondue, currentTemp, weatherData.condition))
+                if (indoorActivity) suggestions.add(getString(R.string.life_suggestion_indoor, currentTemp))
 
 
                 uiThread {
                     if (gameOver) {
-                        life_tip.text = "Okay, so the forecast told us there is a ${weatherData.condition} at your location. Maybe worrying about fancy activities might not be the best thing to do at the moment. We hope you are okay."
+                        life_tip.text = getString(R.string.life_suggestion_danger, weatherData.condition)
                     } else {
                         if (suggestions.isNotEmpty()) {
                             life_tip.text = suggestions.random()
                         } else {
-                            life_tip.text =
-                                "We don't have any recommendations for now. But know that can do anything you want! Go ahead, the world is yours!"
+                            life_tip.text = getString(R.string.life_suggestion_no_suggestion)
                         }
                     }
                 }
             } else {
                 uiThread {
-                    life_tip.text = "We don't have any idea of the weather conditions at your location, so we can't recommend anything. That's okay, It's not like you depend on us for living or something like that. Just do what you wanna do."
+                    life_tip.text = getString(R.string.life_suggestion_no_data)
                 }
             }
 
