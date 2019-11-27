@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -165,10 +166,10 @@ class MainActivity : AppCompatActivity() {
 
             if(weatherData != null){
                 uiThread {
-                    currentLocation.text = weatherData.cityName.capitalize() //FIXME this is not capitalizing :(
+                    currentLocation.text = weatherData.cityName.capitalize()
                     currentTemperature.text = "${"%.2f".format(Locale.ENGLISH, weatherData.temperature)}°C"
                     currentUv.text = "%.2f".format(Locale.ENGLISH, weatherData.currentUv)
-                    currentWeather.text = weatherData.condition
+                    currentWeather.text = weatherData.condition.capitalize()
                 }
             }
         }
