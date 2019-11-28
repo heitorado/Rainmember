@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import br.ufpe.cin.android.rainmember.R
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.alarm.AlarmLogic
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Alarm
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.AlarmDB
 
@@ -16,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_create_alarm.*
 import kotlinx.android.synthetic.main.content_create_alarm.*
 import kotlinx.android.synthetic.main.content_create_alarm.view.*
 import org.jetbrains.anko.doAsync
-import java.sql.Time
 
 class CreateAlarmActivity : AppCompatActivity() {
 
@@ -32,54 +32,61 @@ class CreateAlarmActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            var result_text = ""
+            var resultText : String
 
             if(validAlarmConfig(view.rootView)){
-                save_alarm_settings(view.rootView)
-                result_text = "Alarm created successfully!"
+                saveAlarmSettings(view.rootView)
+                resultText = "Alarm created successfully!"
                 Log.d(TAG, "Alarm created")
             } else {
-                result_text = "Error! Select at least one day of the week!"
+                resultText = "Error! Select at least one day of the week!"
                 Log.d(TAG, "Error creating alarm")
             }
 
-            Snackbar.make(view, result_text, Snackbar.LENGTH_LONG)
+            Snackbar.make(view, resultText, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
         alarm_time_picker.setIs24HourView(true)
 
-        alarm_time_picker.setOnTimeChangedListener { timePicker: TimePicker, i: Int, i1: Int ->
+        alarm_time_picker.setOnTimeChangedListener { _: TimePicker, i: Int, i1: Int ->
             Log.d(TAG, "Time selector changed")
             Log.d(TAG, i.toString())
             Log.d(TAG, i1.toString())
             // Experimental
-            //save_alarm_settings(timePicker.rootView)
+            //saveAlarmSettings(timePicker.rootView)
         }
 
         checkBox_monday.setOnClickListener {
             Log.d(TAG, "Monday checkbox clicked")
             // Experimental
-            // save_alarm_settings(it.rootView)
+            // saveAlarmSettings(it.rootView)
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    fun save_alarm_settings(v : View) {
+    fun saveAlarmSettings(v : View)  {
         val h = v.alarm_time_picker.hour
         val m = v.alarm_time_picker.minute
-        val days = get_checked_days_value(v)
+        val days = getCheckedDaysValue(v)
 
-        val al = Alarm(false, "$h:$m", days, 0)
+        val al = Alarm(true, days,"$h:$m")
 
         doAsync {
             val db = AlarmDB.getDatabase(applicationContext)
             db.alarmDAO().addAlarm(al)
+            val createdAlarm = db.alarmDAO().getAlarm(al.alarmTime)
+
+            if(createdAlarm != null){
+                val alarmConfig = AlarmLogic(context = applicationContext, alarm = createdAlarm)
+                alarmConfig.setAlarm()
+            }
         }
+
     }
 
-    fun get_checked_days_value(v : View) : Int{
+    private fun getCheckedDaysValue(v : View) : Int{
         var daysValue = 0
 
         // Monday
@@ -106,7 +113,7 @@ class CreateAlarmActivity : AppCompatActivity() {
         return daysValue
     }
 
-    fun validAlarmConfig(v : View) : Boolean {
+    private fun validAlarmConfig(v : View) : Boolean {
         return v.checkBox_monday.isChecked || v.checkBox_tuesday.isChecked ||
                v.checkBox_wednesday.isChecked || v.checkBox_thursday.isChecked ||
                v.checkBox_friday.isChecked || v.checkBox_saturday.isChecked ||

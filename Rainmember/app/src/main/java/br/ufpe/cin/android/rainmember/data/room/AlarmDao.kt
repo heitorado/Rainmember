@@ -8,6 +8,14 @@ interface AlarmDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addAlarm (vararg alarmObjects: Alarm)
 
+    @Delete
+    fun destroyAlarm (vararg alarmObjects: Alarm)
+
+
     @Query("SELECT * FROM alarm")
-    fun getAll(): Array<Alarm>
+    fun getAll(): List<Alarm>
+
+
+    @Query("SELECT * FROM alarm WHERE alarmTime LIKE :alarmTime")
+    fun getAlarm(alarmTime : String) : Alarm?
 }

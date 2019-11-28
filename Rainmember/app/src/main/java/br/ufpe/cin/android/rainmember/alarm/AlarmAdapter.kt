@@ -44,11 +44,27 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
             val switchStatus = holder.alarm_toggle.isChecked
 
             // create a new object for db storing
-            val al = Alarm(switchStatus, i.alarmTime, i.alarmDates, i.id)
+            val al = Alarm(switchStatus, i.alarmDates, i.alarmTime)
 
             doAsync {
                 val db = AlarmDB.getDatabase(c.applicationContext)
                 db.alarmDAO().addAlarm(al)
+                val updatedAlarm = db.alarmDAO().getAlarm(al.alarmTime)
+
+                if(updatedAlarm != null) {
+                    // Update the local array so the recyclerView is updated too
+                    val ind = items.indexOf( items.find {
+                        it.alarmTime == updatedAlarm.alarmTime
+                    } )
+                    if(ind > 0) {
+                        items[ind].active = switchStatus
+                    }
+
+                    // Set or cancel the AlarmManager for this alarm
+                    val alarmConfig = AlarmLogic(context = it.context, alarm = updatedAlarm)
+                    if (updatedAlarm.active) alarmConfig.setAlarm()
+                    else alarmConfig.cancelAlarm()
+                }
 
                 //FIXME here we have a bug: the recyclerview keeps fetching for the static list and not for the db, so it needs refreshing for updating all the sliders.
             }

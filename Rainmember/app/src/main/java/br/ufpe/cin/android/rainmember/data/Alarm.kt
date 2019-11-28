@@ -5,11 +5,10 @@ import java.sql.Time
 
 @Entity(tableName = "alarm")
 class Alarm (
-    val active: Boolean,
-    val alarmTime: String, //HH:MM format
-    val alarmDates: Int,
-    @PrimaryKey(autoGenerate = true)
-    var id: Int
+    var active: Boolean,
+    var alarmDates: Int,
+    @PrimaryKey
+    var alarmTime: String //HH:MM format
 ) {
     fun alarmDays(): String {
         var weekdays = ArrayList<String>(7)
