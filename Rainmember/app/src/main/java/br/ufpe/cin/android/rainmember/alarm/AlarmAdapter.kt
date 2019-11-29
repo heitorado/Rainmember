@@ -38,8 +38,6 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
 
         // Here we set the alarm as active or inactive, updating in the db.
         holder.itemView.toggle_alarm_on.setOnClickListener {
-            Log.d(TAG, "Switch clicked!")
-
             // Check for the switch current status
             val switchStatus = holder.alarm_toggle.isChecked
 
@@ -61,9 +59,16 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
                     }
 
                     // Set or cancel the AlarmManager for this alarm
-                    val alarmConfig = AlarmLogic(context = it.context, alarm = updatedAlarm)
-                    if (updatedAlarm.active) alarmConfig.setAlarm()
-                    else alarmConfig.cancelAlarm()
+                    var alarmConfig = AlarmLogic(context = it.context, alarm = updatedAlarm)
+                    if (updatedAlarm.active) {
+                        Log.d(TAG, "Requesting ALARM SET for ${updatedAlarm.alarmTime}")
+                        alarmConfig.setAlarm()
+                    }
+                    else {
+                        Log.d(TAG, "Requesting ALARM CANCEL for ${updatedAlarm.alarmTime}")
+                        alarmConfig.cancelAlarm()
+
+                    }
                 }
 
                 //FIXME here we have a bug: the recyclerview keeps fetching for the static list and not for the db, so it needs refreshing for updating all the sliders.

@@ -79,7 +79,7 @@ class CreateAlarmActivity : AppCompatActivity() {
             val createdAlarm = db.alarmDAO().getAlarm(al.alarmTime)
 
             if(createdAlarm != null){
-                val alarmConfig = AlarmLogic(context = applicationContext, alarm = createdAlarm)
+                var alarmConfig = AlarmLogic(context = applicationContext, alarm = createdAlarm)
                 alarmConfig.setAlarm()
             }
         }

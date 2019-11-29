@@ -30,6 +30,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".PreferencesActivity"></activity>
+
+        <receiver android:name=".br.ufpe.cin.android.rainmember.alarm.AlarmReceiver"  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ALARM_TRIGGERED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
