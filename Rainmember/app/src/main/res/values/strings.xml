@@ -18,6 +18,8 @@
     <string name="life_suggestion_preference">LIFE_SUGGESTION_PREFERENCE</string>
     <string name="life_suggestion_component">Life Suggestions</string>
 
+    <string name="location_comp_preference">LOCATION_COMPARISON_PREFERENCE</string>
+    <string name="location_comp_component">Location to Compare data to</string>
 
     <!-- Broadcast Flags -->
     <string name="dashboard_change">DASHBOARD_CHANGE</string>
