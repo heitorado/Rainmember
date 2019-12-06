@@ -1,4 +1,4 @@
-package br.ufpe.cin.android.rainmember
+package br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.preference.PreferenceFragmentCompat
 import android.content.SharedPreferences
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.preference.PreferenceManager
+import br.ufpe.cin.android.rainmember.R
 
 
 class PreferencesActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
@@ -17,7 +18,10 @@ class PreferencesActivity : AppCompatActivity(), SharedPreferences.OnSharedPrefe
         setContentView(R.layout.activity_preferences)
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.preferences_fragment, PreferencesFragment())
+            .replace(
+                R.id.preferences_fragment,
+                PreferencesFragment()
+            )
             .commit()
 
         sharedPref = PreferenceManager.getDefaultSharedPreferences(applicationContext)

@@ -41,8 +41,11 @@ fun dataComponentFactory (context: Context?): List<Fragment> {
             Log.d (TAG, "Add LifeSuggestionFragment")
             result.add(LifeSuggestionFragment())
         }
-
-
+        
+        if (isActive(sharedPreferences, context.getString(R.string.clothing_suggestion_preference))) {
+            Log.d (TAG, "Add ClothingSuggestionFragment")
+            result.add(ClothingSuggestionFragment())
+        }
 
     }
 

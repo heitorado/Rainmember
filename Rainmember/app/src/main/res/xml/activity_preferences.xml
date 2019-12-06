@@ -21,4 +21,8 @@
         app:key="@string/life_suggestion_preference"
         app:title="@string/life_suggestion_component"
         />
+
+    <SwitchPreference
+        app:key="@string/clothing_suggestion_preference"
+        app:title="@string/clothing_suggestions_component" />
 </androidx.preference.PreferenceScreen>

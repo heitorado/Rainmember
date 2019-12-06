@@ -29,7 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PreferencesActivity"></activity>
+        <activity android:name=".br.ufpe.cin.android.rainmember.PreferencesActivity"></activity>
 
         <receiver android:name=".br.ufpe.cin.android.rainmember.alarm.AlarmReceiver"  android:exported="true">
             <intent-filter>

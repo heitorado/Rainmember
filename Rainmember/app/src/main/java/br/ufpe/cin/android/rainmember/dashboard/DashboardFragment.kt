@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import br.ufpe.cin.android.rainmember.PreferencesActivity
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.PreferencesActivity
 import br.ufpe.cin.android.rainmember.R
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
