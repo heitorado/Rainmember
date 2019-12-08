@@ -70,8 +70,6 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
 
                     }
                 }
-
-                //FIXME here we have a bug: the recyclerview keeps fetching for the static list and not for the db, so it needs refreshing for updating all the sliders.
             }
         }
 
