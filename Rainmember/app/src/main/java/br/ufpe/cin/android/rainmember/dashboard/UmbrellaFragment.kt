@@ -61,5 +61,4 @@ class UmbrellaFragment : Fragment () {
         return view
     }
 
-
 }

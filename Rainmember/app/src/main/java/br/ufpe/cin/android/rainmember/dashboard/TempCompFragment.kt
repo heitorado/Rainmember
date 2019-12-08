@@ -1,4 +1,4 @@
-package br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard
+package br.ufpe.cin.android.rainmember.dashboard
 
 import android.os.Bundle
 import android.util.Log

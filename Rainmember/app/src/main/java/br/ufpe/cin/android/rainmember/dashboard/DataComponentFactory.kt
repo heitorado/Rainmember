@@ -8,7 +8,6 @@ import androidx.preference.PreferenceManager
 import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.LifeSuggestionFragment
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.SunscreenFragment
-import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard.TempCompFragment
 
 const val TAG = "dataComponentFactory"
 

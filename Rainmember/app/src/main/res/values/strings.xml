@@ -38,12 +38,14 @@
     <string name="life_suggestion_fondue">%1$d°C and %2$s means just one thing: fondue. Okay, maybe it could mean a thousand other things, but you got it. Just google \'fondue\' and give it a try!</string>
     <string name="life_suggestion_indoor">Maybe %1$d°C is not the best weather for outdoor stuff, but going on indoor activities can be really nice. What about going to a nice restaurant, shopping or even indoor climbing?</string>
 
+    <string name="clothe_suggestion_hot">It\'s kinda hot, you should wear something fresh!</string>
+    <string name="clothe_suggestion_cold">It\'s cold! Bring a jacket!</string>
+    <string name="clothe_suggestion_nice">Today the weather is nice! You can wear anything you like!</string>
+
     <string name="channel_id">REMINDER_CHANNEL</string>
     <string name="channel_name">Weather Reminders</string>
     <string name="channel_description">User defined periodic weather reminders and tips</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="clothing_suggestion_preference">CLOTHING_SUGGESTION_PREFERENCE</string>
     <string name="clothing_suggestions_component">What should i wear?</string>
 </resources>
