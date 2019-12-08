@@ -43,8 +43,7 @@ class CreateAlarmActivity : AppCompatActivity() {
                 Log.d(TAG, "Error creating alarm")
             }
 
-            Snackbar.make(view, resultText, Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            this.finish()
         }
 
         alarm_time_picker.setIs24HourView(true)
