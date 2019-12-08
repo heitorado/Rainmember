@@ -21,12 +21,4 @@
         app:key="@string/life_suggestion_preference"
         app:title="@string/life_suggestion_component"
         />
-
-    <ListPreference
-        android:id="@+id/locationList"
-        android:defaultValue="false"
-        android:entries="@array/location_pref_entries"
-        android:entryValues="@array/location_pref_values"
-        app:key="@string/location_comp_preference"
-        app:title="@string/location_comp_component" />
 </androidx.preference.PreferenceScreen>

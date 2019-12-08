@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".dashboard.ChooseComparingLocationActivity"></activity>
         <activity
             android:name=".alarm.CreateAlarmActivity"
             android:label="@string/title_activity_create_alarm"
@@ -29,11 +30,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PreferencesActivity"></activity>
+        <activity android:name=".PreferencesActivity" />
 
-        <receiver android:name=".br.ufpe.cin.android.rainmember.alarm.AlarmReceiver"  android:exported="true">
+        <receiver
+            android:name=".br.ufpe.cin.android.rainmember.alarm.AlarmReceiver"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.ALARM_TRIGGERED"/>
+                <action android:name="android.intent.action.ALARM_TRIGGERED" />
             </intent-filter>
         </receiver>
     </application>
