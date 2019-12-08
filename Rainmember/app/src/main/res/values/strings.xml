@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Rainmember</string>
 
+    <!-- Placeholder Text -->
+    <string name="syncing_info">Syncing...</string>
+
     <!-- Navigation -->
     <string name="navigation_dashboard">Dashboard</string>
     <string name="navigation_alarms">Alarms</string>
@@ -19,7 +22,6 @@
     <string name="life_suggestion_component">Life Suggestions</string>
 
     <string name="location_comp_preference">LOCATION_COMPARISON_PREFERENCE</string>
-    <string name="location_comp_component">Location to Compare data to</string>
 
     <!-- Broadcast Flags -->
     <string name="dashboard_change">DASHBOARD_CHANGE</string>
@@ -40,6 +42,7 @@
     <string name="life_suggestion_fondue">%1$d°C and %2$s means just one thing: fondue. Okay, maybe it could mean a thousand other things, but you got it. Just google \'fondue\' and give it a try!</string>
     <string name="life_suggestion_indoor">Maybe %1$d°C is not the best weather for outdoor stuff, but going on indoor activities can be really nice. What about going to a nice restaurant, shopping or even indoor climbing?</string>
 
+    <!-- Channels -->
     <string name="channel_id">REMINDER_CHANNEL</string>
     <string name="channel_name">Weather Reminders</string>
     <string name="channel_description">User defined periodic weather reminders and tips</string>

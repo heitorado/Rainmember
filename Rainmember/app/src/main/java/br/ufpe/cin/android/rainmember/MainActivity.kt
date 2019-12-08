@@ -11,8 +11,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -24,7 +22,6 @@ import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Weathe
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
 import br.ufpe.cin.android.rainmember.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.contentView
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.util.*
