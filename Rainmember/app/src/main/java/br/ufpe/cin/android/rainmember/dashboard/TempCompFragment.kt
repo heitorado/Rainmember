@@ -21,7 +21,7 @@ class TempCompFragment : Fragment() {
     ): View? {
         Log.d (TAG, "Created")
 
-        val db = WeatherDataDB.getDatabase(context!!)
+        val db = WeatherDataDB.getDatabase(activity?.applicationContext!!)
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()
             if(weatherData != null){

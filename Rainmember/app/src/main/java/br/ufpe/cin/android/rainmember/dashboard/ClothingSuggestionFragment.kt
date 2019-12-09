@@ -24,7 +24,7 @@ class ClothingSuggestionFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val db = WeatherDataDB.getDatabase(context!!)
+        val db = WeatherDataDB.getDatabase(activity?.applicationContext!!)
 
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()

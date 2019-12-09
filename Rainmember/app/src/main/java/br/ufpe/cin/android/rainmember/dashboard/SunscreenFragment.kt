@@ -24,7 +24,7 @@ class SunscreenFragment : Fragment() {
     ): View? {
         Log.d (TAG, "Created")
 
-        val db = WeatherDataDB.getDatabase(context!!)
+        val db = WeatherDataDB.getDatabase(activity?.applicationContext!!)
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()
             val resourceYes = R.drawable.image_sunscreen_yes
