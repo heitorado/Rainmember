@@ -78,8 +78,11 @@ class CreateAlarmActivity : AppCompatActivity() {
             val createdAlarm = db.alarmDAO().getAlarm(al.alarmTime)
 
             if(createdAlarm != null){
+                val alarmDays = createdAlarm.weekDaysArray()
                 var alarmConfig = AlarmLogic(context = applicationContext, alarm = createdAlarm)
-                alarmConfig.setAlarm()
+                for( i in 0 until alarmDays.size){
+                    alarmConfig.setAlarm(alarmDays[i])
+                }
             }
         }
 
