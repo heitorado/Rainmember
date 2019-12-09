@@ -40,7 +40,7 @@
 
     <string name="clothe_suggestion_hot">It\'s kinda hot, you should wear something fresh!</string>
     <string name="clothe_suggestion_cold">It\'s cold! Bring a jacket!</string>
-    <string name="clothe_suggestion_nice">Today the weather is nice! You can wear anything you like!</string>
+    <string name="clothe_suggestion_nice">The weather is nice! You can wear anything you like!</string>
 
     <string name="channel_id">REMINDER_CHANNEL</string>
     <string name="channel_name">Weather Reminders</string>
@@ -48,4 +48,7 @@
 
     <string name="clothing_suggestion_preference">CLOTHING_SUGGESTION_PREFERENCE</string>
     <string name="clothing_suggestions_component">What should i wear?</string>
+
+    <string name="quote_of_the_day_preference">QUOTE_OF_THE_DAY_PREFERENCE</string>
+    <string name="quote_of_the_day_component">Quote of The Day</string>
 </resources>

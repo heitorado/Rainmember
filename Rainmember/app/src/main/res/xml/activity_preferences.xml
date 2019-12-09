@@ -25,4 +25,9 @@
     <SwitchPreference
         app:key="@string/clothing_suggestion_preference"
         app:title="@string/clothing_suggestions_component" />
+
+    <SwitchPreference
+        app:key="@string/quote_of_the_day_preference"
+        app:title="@string/quote_of_the_day_component" />
+
 </androidx.preference.PreferenceScreen>
