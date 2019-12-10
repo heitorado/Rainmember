@@ -52,7 +52,7 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
 
     override fun getWeatherByCityId(city_id: String, kind: String): WeatherData {
         val request = Request.Builder()
-            .url("${API_URL}/weather?id=$city_id")
+            .url("${API_URL}/weather?APPID=$appId&id=$city_id")
             .build()
 
         client.newCall(request).execute().use { response ->
