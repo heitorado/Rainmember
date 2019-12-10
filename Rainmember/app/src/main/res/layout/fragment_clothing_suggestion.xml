@@ -37,6 +37,7 @@
                     android:layout_height="153dp"
                     android:background="@drawable/shirt"
                     app:layout_constraintLeft_toLeftOf="parent"
+                    android:contentDescription="Suggested top clothe icon"
                     app:layout_constraintStart_toEndOf="@+id/action_text"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,6 +46,7 @@
                     android:layout_width="125dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/trousers"
+                    android:contentDescription="Suggested bottom clothe icon"
                     app:layout_constraintLeft_toRightOf="@id/top_clothing"
                     app:layout_constraintStart_toEndOf="@+id/action_text"
                     app:layout_constraintTop_toTopOf="parent" />
