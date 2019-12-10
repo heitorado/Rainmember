@@ -10,6 +10,7 @@ private const val API_URL = "https://api.openweathermap.org/data/2.5/"
 
 class OpenWeatherApi (private val appId: String) : WeatherApi {
 
+
     private val client = OkHttpClient()
 
     override fun getWeatherForecast(latitude: Double, longitude: Double): List<WeatherData> {
@@ -35,9 +36,23 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
         return result
     }
 
-    override fun getCurrentWeather(latitude: Double, longitude: Double): WeatherData {
+    override fun getCurrentWeather(latitude: Double, longitude: Double, kind : String): WeatherData {
         val request = Request.Builder()
             .url("${API_URL}/weather?${queryParams(latitude, longitude)}")
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            val responseString = response.body!!.string()
+            Log.d ("OpenWeatherApi", responseString )
+            val body = JSONObject(responseString)
+
+            return jsonToWeatherData(body)
+        }
+    }
+
+    override fun getWeatherByCityId(city_id: String, kind: String): WeatherData {
+        val request = Request.Builder()
+            .url("${API_URL}/weather?id=$city_id")
             .build()
 
         client.newCall(request).execute().use { response ->
@@ -77,7 +92,8 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
             weatherCode = weatherCode,
             datetime = Date(),
             currentUv = 0.0,
-            maxUv = 0.0
+            maxUv = 0.0,
+            dataTag = ""
         )
     }
 

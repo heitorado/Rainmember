@@ -22,6 +22,11 @@
     <string name="life_suggestion_component">Life Suggestions</string>
 
     <string name="location_comp_preference">LOCATION_COMPARISON_PREFERENCE</string>
+    <string name="location_comp_preference_default_value">NO_CITY_SET</string>
+
+    <!-- WeatherData Flags -->
+    <string name="flag_current">CURRENT</string>
+    <string name="flag_comparison">COMPARISON</string>
 
     <!-- Broadcast Flags -->
     <string name="dashboard_change">DASHBOARD_CHANGE</string>

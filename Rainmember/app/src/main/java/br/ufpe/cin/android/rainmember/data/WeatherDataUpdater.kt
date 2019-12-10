@@ -11,9 +11,9 @@ class WeatherDataUpdater : WeatherApi {
         return weatherApi.getWeatherForecast(latitude, longitude)
     }
 
-    override fun getCurrentWeather(latitude: Double, longitude: Double): WeatherData {
-        val weatherData = weatherApi.getCurrentWeather(latitude, longitude)
-        val uvData = uvApi.getCurrentWeather(latitude, longitude)
+    override fun getCurrentWeather(latitude: Double, longitude: Double, kind : String): WeatherData {
+        val weatherData = weatherApi.getCurrentWeather(latitude, longitude, kind)
+        val uvData = uvApi.getCurrentWeather(latitude, longitude, kind)
 
         return WeatherData(
             cityName = weatherData.cityName,
@@ -25,7 +25,27 @@ class WeatherDataUpdater : WeatherApi {
             weatherCode = weatherData.weatherCode,
             datetime = weatherData.datetime,
             currentUv = uvData.currentUv,
-            maxUv = uvData.maxUv
+            maxUv = uvData.maxUv,
+            dataTag = kind
         )
+    }
+
+    override fun getWeatherByCityId(city_id: String, kind: String): WeatherData {
+        val weatherData = weatherApi.getWeatherByCityId(city_id, kind)!!
+
+        return WeatherData(
+            cityName = weatherData.cityName,
+            temperature = weatherData.temperature,
+            maxTemperature = weatherData.maxTemperature,
+            minTemperature = weatherData.minTemperature,
+            humidity = weatherData.humidity,
+            condition = weatherData.condition,
+            weatherCode = weatherData.weatherCode,
+            datetime = weatherData.datetime,
+            currentUv = 0.0,
+            maxUv = 0.0,
+            dataTag = kind
+        )
+
     }
 }
