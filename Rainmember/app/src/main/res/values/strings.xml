@@ -45,6 +45,10 @@
     <string name="saturday">S</string>
     <string name="sunday">S</string>
 
+    <!-- Texts for "Umbrella" component -->
+    <string name="umbrella_yes">YES</string>
+    <string name="umbrella_no">NO</string>
+
     <!-- Texts for "Life Suggestion" component -->
     <string name="life_suggestion_no_data">We don\'t have any idea of the weather conditions at your location, so we can\'t recommend anything. That\'s okay, It\'s not like you depend on us for living or something like that. Just do what you wanna do.</string>
     <string name="life_suggestion_no_suggestion">We don\'t have any recommendations for now. But know that can do anything you want! Go ahead, the world is yours!</string>
@@ -55,6 +59,15 @@
     <string name="life_suggestion_picnic">Well, it\'s %1$d°C outside and the weather is clear. Why don\'t you get that checkered towel, a straw basket, fruits, wine, that nice company and go on a picnic?</string>
     <string name="life_suggestion_fondue">%1$d°C and %2$s means just one thing: fondue. Okay, maybe it could mean a thousand other things, but you got it. Just google \'fondue\' and give it a try!</string>
     <string name="life_suggestion_indoor">Maybe %1$d°C is not the best weather for outdoor stuff, but going on indoor activities can be really nice. What about going to a nice restaurant, shopping or even indoor climbing?</string>
+
+    <!-- Texts for "Sunscreen" component -->
+    <string name="sunscreen_card_title">Sunscreen Tip</string>
+    <string name="sunscreen_no_data">We couldn\'t retrieve the UV data right now. But you should wear sunscreen anyway, just in case!</string>
+    <string name="sunscreen_dont_need">No need for sunscreen, the sun is being nice at this time!</string>
+    <string name="sunscreen_moderate">Remember to put sunscreen! The UV index is Moderate.</string>
+    <string name="sunscreen_high">Remember to put sunscreen and avoid sun exposure between 10am and 4pm! The UV index is High.</string>
+    <string name="sunscreen_very_high">Remember to put A LOT OF sunscreen and avoid sun exposure between 10am and 4pm! The UV index is Very High</string>
+    <string name="sunscreen_extreme">Put a LOT of sunscreen every 2 hours. Avoid sun exposure! The UV index is EXTREME. Are you sure you want to leave your house now?</string>
 
     <!-- Texts for "Clothing Suggestion" component -->
     <string name="clothe_suggestion_hot">It\'s kinda hot, you should wear something fresh!</string>
@@ -84,8 +97,36 @@
     <string name="channel_description">User defined periodic weather reminders and tips</string>
 
     <string name="clothing_suggestion_preference">CLOTHING_SUGGESTION_PREFERENCE</string>
-    <string name="clothing_suggestions_component">What should i wear?</string>
+    <string name="clothing_suggestions_component">What should I wear?</string>
 
     <string name="quote_of_the_day_preference">QUOTE_OF_THE_DAY_PREFERENCE</string>
     <string name="quote_of_the_day_component">Quote of The Day</string>
+
+    <!-- Buttons -->
+    <string name="settings_button">Settings</string>
+
+    <!-- Placeholders for Adapter and Quick Info Items -->
+    <string name="alarm_item_time_placeholder">06:30</string>
+    <string name="alarm_item_days_placeholder">mon, tue, wed, thu, fri, sat, sun</string>
+    <string name="location_text_placeholder">Location</string>
+    <string name="temperature_text_placeholder">Temperature</string>
+    <string name="weather_text_placeholder">Weather</string>
+    <string name="uv_data_text_placeholder">UV Data</string>
+
+    <!-- Content Descriptions -->
+    <string name="suggested_top_cloth_icon">Suggested top cloth icon</string>
+    <string name="suggested_bottom_cloth_icon">Suggested bottom cloth icon</string>
+    <string name="sunscreen_skin_fps_graphic">Sunscreen skin FPS graphic</string>
+    <string name="set_alarm_switch_description">Set alarm switch</string>
+    <string name="add_alarm_button_description">Add alarm button</string>
+    <string name="alarm_time_picker_description">Alarm time picker</string>
+    <string name="monday_checkbox_description">Monday checkbox</string>
+    <string name="tuesday_checkbox_description">Tuesday checkbox</string>
+    <string name="wednesday_checkbox_description">Wednesday checkbox</string>
+    <string name="thursday_checkbox_description">Thursday checkbox</string>
+    <string name="friday_checkbox_description">Friday checkbox</string>
+    <string name="saturday_checkbox_description">Saturday checkbox</string>
+    <string name="sunday_checkbox_description">Sunday checkbox</string>
+    <string name="create_alarm_button_description">Create alarm button</string>
+    <string name="umbrella_image_description">Umbrella image</string>
 </resources>

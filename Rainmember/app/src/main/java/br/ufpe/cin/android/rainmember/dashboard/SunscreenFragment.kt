@@ -29,7 +29,7 @@ class SunscreenFragment : Fragment() {
             val weatherData = db.weatherDataDAO().getLatest()
             val resourceYes = R.drawable.image_sunscreen_yes
             val resourceNo = R.drawable.image_sunscreen_no
-            var hintText = "We couldn't retrieve the UV data right now. But you should wear sunscreen anyway, just in case!"
+            var hintText = getString(R.string.sunscreen_no_data)
             var res = resourceYes
 
 
@@ -37,19 +37,16 @@ class SunscreenFragment : Fragment() {
                 Log.d(TAG, weatherData.toString())
 
                 if (weatherData.currentUv <= 2.9) {
-                    hintText = "No need for sunscreen, the sun is being nice at this time!"
+                    hintText = getString(R.string.sunscreen_dont_need)
                     res = resourceNo
                 } else if (weatherData.currentUv > 2.9 && weatherData.currentUv <= 5.9) {
-                    hintText = "Remember to put sunscreen! The UV index is Moderate."
+                    hintText = getString(R.string.sunscreen_moderate)
                 } else if (weatherData?.currentUv > 5.9 && weatherData.currentUv <= 7.9) {
-                    hintText =
-                        "Remember to put sunscreen and avoid sun exposure between 10am and 4pm! The UV index is High."
+                    hintText = getString(R.string.sunscreen_high)
                 } else if (weatherData.currentUv > 7.9 && weatherData.currentUv <= 10.9) {
-                    hintText =
-                        "Remember to put A LOT OF sunscreen and avoid sun exposure between 10am and 4pm! The UV index is Very High"
+                    hintText = getString(R.string.sunscreen_very_high)
                 } else if (weatherData.currentUv > 10.9) {
-                    hintText =
-                        "Put a LOT of sunscreen every 2 hours. Avoid sun exposure! The UV index is EXTREME. Are you sure you want to leave your house now?"
+                    hintText = getString(R.string.sunscreen_extreme)
                 }
             }
 

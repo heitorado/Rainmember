@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15sp"
-    android:backgroundTint="@color/colorQuoteOfTheDay">
+    app:cardBackgroundColor="@color/colorQuoteOfTheDay">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,15 +20,25 @@
             android:textColor="@color/colorAccent"
             android:text="@string/quote_of_the_day_component" />
 
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10sp"
+            android:background="#FFFFFF" />
+
         <TextView
             android:id="@+id/quote_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25sp"
-            android:textColor="@color/colorAccent"
-            android:textSize="24dp"
-            android:text="@string/quote_of_the_day_component"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginRight="15sp"
+            android:layout_marginBottom="15sp"
             android:gravity="center_horizontal|center_vertical"
+            android:text="@string/quote_of_the_day_component"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_big"
             app:fontFamily="@font/roboto_light" />
 
 
