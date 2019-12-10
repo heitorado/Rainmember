@@ -41,15 +41,7 @@ class AlarmReceiver : BroadcastReceiver() {
             .setContentTitle("Rainmember, rainmember!")
             .setStyle(NotificationCompat.BigTextStyle()
             .bigText("you asked for weather stuff reminders at ${receivedIntent.extras!!["ALARM_TIME"]}.\n" +
-                    "Quick reminders list: \n" +
-                    " - You should bring an umbrella.\n" +
-                    " - You should bring an umbrella.\n" +
-                    " - You should bring an umbrella.\n" +
-                    " - You should bring an umbrella.\n" +
-                    " - You should bring an umbrella.\n" +
-                    " - You should bring an umbrella.\n" +
-                    " - You should bring an umbrella.\n" +
-                    " - You should bring an umbrella."))
+                    "Click here to check it out what today's weather is all about!"))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             // Set the intent that will fire when the user taps the notification
             .setContentIntent(pendingIntent)
