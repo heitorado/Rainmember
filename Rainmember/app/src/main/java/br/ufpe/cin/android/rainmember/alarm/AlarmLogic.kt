@@ -35,6 +35,7 @@ class AlarmLogic( val context : Context, val alarm : Alarm){
         }
 
         if(calendar.before(Calendar.getInstance())) {
+            Log.d(TAG, "Date in the past! Scheduling for next week...")
             calendar.add(Calendar.DATE, 7)
         }
 
@@ -45,7 +46,7 @@ class AlarmLogic( val context : Context, val alarm : Alarm){
             generateIntent(dayOfWeek)
         )
 
-        Log.d(TAG, "AlarmManager SET for ${alarm.alarmTime}")
+        Log.d(TAG, "AlarmManager SET for ${alarm.alarmTime}, repeat on: $dayOfWeek")
     }
 
     fun cancelAlarm(dayOfWeek : Int) {
