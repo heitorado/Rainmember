@@ -10,13 +10,14 @@ private const val API_URL = "https://api.openuv.io/api/v1/uv"
 
 class OpenUVApi (private val apiKey: String) : WeatherApi {
 
+
     private val client = OkHttpClient()
 
     override fun getWeatherForecast(latitude: Double, longitude: Double): List<WeatherData> {
         return ArrayList(0)
     }
 
-    override fun getCurrentWeather(latitude: Double, longitude: Double): WeatherData {
+    override fun getCurrentWeather(latitude: Double, longitude: Double, kind : String): WeatherData {
         val request = Request.Builder()
             .url("${API_URL}?${queryParams(latitude, longitude)}")
             .header("x-access-token", apiKey)
@@ -29,6 +30,10 @@ class OpenUVApi (private val apiKey: String) : WeatherApi {
 
             return jsonToWeatherData(body)
         }
+    }
+
+    override fun getWeatherByCityId(city_id: String, kind: String): WeatherData? {
+        return null
     }
 
     private fun queryParams (latitude: Double, longitude: Double): String =
@@ -51,7 +56,8 @@ class OpenUVApi (private val apiKey: String) : WeatherApi {
             weatherCode = 0,
             datetime = Date(),
             currentUv = currentUv,
-            maxUv = maxUv
+            maxUv = maxUv,
+            dataTag = ""
         )
     }
 

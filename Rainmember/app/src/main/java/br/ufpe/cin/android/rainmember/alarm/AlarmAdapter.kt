@@ -60,18 +60,20 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
 
                     // Set or cancel the AlarmManager for this alarm
                     var alarmConfig = AlarmLogic(context = it.context, alarm = updatedAlarm)
+                    val alarmDays = updatedAlarm.weekDaysArray()
                     if (updatedAlarm.active) {
                         Log.d(TAG, "Requesting ALARM SET for ${updatedAlarm.alarmTime}")
-                        alarmConfig.setAlarm()
+                        for( i in 0 until alarmDays.size){
+                            alarmConfig.setAlarm(alarmDays[i])
+                        }
                     }
                     else {
                         Log.d(TAG, "Requesting ALARM CANCEL for ${updatedAlarm.alarmTime}")
-                        alarmConfig.cancelAlarm()
-
+                        for( i in 0 until alarmDays.size){
+                            alarmConfig.cancelAlarm(alarmDays[i])
+                        }
                     }
                 }
-
-                //FIXME here we have a bug: the recyclerview keeps fetching for the static list and not for the db, so it needs refreshing for updating all the sliders.
             }
         }
 

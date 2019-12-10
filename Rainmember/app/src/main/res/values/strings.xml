@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Rainmember</string>
 
+    <!-- Placeholder Text -->
+    <string name="syncing_info">Syncing...</string>
+
     <!-- Navigation -->
     <string name="navigation_dashboard">Dashboard</string>
     <string name="navigation_alarms">Alarms</string>
@@ -18,6 +21,12 @@
     <string name="life_suggestion_preference">LIFE_SUGGESTION_PREFERENCE</string>
     <string name="life_suggestion_component">Life Suggestions</string>
 
+    <string name="location_comp_preference">LOCATION_COMPARISON_PREFERENCE</string>
+    <string name="location_comp_preference_default_value">NO_CITY_SET</string>
+
+    <!-- WeatherData Flags -->
+    <string name="flag_current">CURRENT</string>
+    <string name="flag_comparison">COMPARISON</string>
 
     <!-- Broadcast Flags -->
     <string name="dashboard_change">DASHBOARD_CHANGE</string>
@@ -26,6 +35,15 @@
     <!-- Settings -->
     <string name="action_settings">Settings</string>
     <string name="title_activity_create_alarm">CreateAlarmActivity</string>
+
+    <!-- Abbreviated Weekdays Text -->
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">T</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
+    <string name="sunday">S</string>
 
     <!-- Texts for "Life Suggestion" component -->
     <string name="life_suggestion_no_data">We don\'t have any idea of the weather conditions at your location, so we can\'t recommend anything. That\'s okay, It\'s not like you depend on us for living or something like that. Just do what you wanna do.</string>
@@ -38,10 +56,29 @@
     <string name="life_suggestion_fondue">%1$d°C and %2$s means just one thing: fondue. Okay, maybe it could mean a thousand other things, but you got it. Just google \'fondue\' and give it a try!</string>
     <string name="life_suggestion_indoor">Maybe %1$d°C is not the best weather for outdoor stuff, but going on indoor activities can be really nice. What about going to a nice restaurant, shopping or even indoor climbing?</string>
 
+    <!-- Texts for "Clothing Suggestion" component -->
     <string name="clothe_suggestion_hot">It\'s kinda hot, you should wear something fresh!</string>
     <string name="clothe_suggestion_cold">It\'s cold! Bring a jacket!</string>
     <string name="clothe_suggestion_nice">The weather is nice! You can wear anything you like!</string>
 
+    <!-- Texts for "Temperature Comparison" component -->
+    <string name="temperature_comparison_no_city">For comparing anything, you must choose a city first. Tap me!</string>
+    <string name="temperature_comparison_no_data">We don\'t have any idea of the weather conditions at this location yet. We are terribly sorry. Come back later to check if we manage to do it!</string>
+    <string name="temperature_comparison_colder_1">%1$s is colder than %2$s.</string>
+    <string name="temperature_comparison_colder_2">%1$s is much colder than %2$s.</string>
+    <string name="temperature_comparison_hotter_1">%1$s is hotter than %2$s.</string>
+    <string name="temperature_comparison_hotter_2">%1$s is much hotter than %2$s.</string>
+    <string name="temperature_comparison_equal_temp">Awww, aren\'t %1$s and %2$s cute? They are about the same temperature! Lovely.</string>
+    <string name="temperature_comparison_wet_1">%1$s is wetter than %2$s. It may be a little easier to breathe at where you are right now.</string>
+    <string name="temperature_comparison_wet_2">%1$s is a lot wetter than %2$s. It may be a much easier to breathe at where you are right now.</string>
+    <string name="temperature_comparison_dry_1">%1$s is drier than %2$s. It may be a little harder to breathe at where you are right now.</string>
+    <string name="temperature_comparison_dry_2">%1$s is much more drier than %2$s. It may be harder to breathe at where you are right now.</string>
+    <string name="temperature_comparison_equal_humidity">1$s and %2$s are about the same humidity!</string>
+    <string name="temperature_comparison_less_letters">Also, %1$s has %2$d less characters than %3$s. Just thought you would want to know.</string>
+    <string name="temperature_comparison_more_letters">Also, %1$s has %2$d more characters than %3$s. Just thought you would want to know.</string>
+    <string name="temperature_comparison_equal_letters">Also, %1$s and %2$s have the same amout of characters. Just thought you would want to know.</string>
+
+    <!-- Channels -->
     <string name="channel_id">REMINDER_CHANNEL</string>
     <string name="channel_name">Weather Reminders</string>
     <string name="channel_description">User defined periodic weather reminders and tips</string>

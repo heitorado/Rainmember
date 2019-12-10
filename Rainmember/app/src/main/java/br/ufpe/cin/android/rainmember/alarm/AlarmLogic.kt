@@ -16,36 +16,40 @@ class AlarmLogic( val context : Context, val alarm : Alarm){
 
     private var alarmMgr: AlarmManager? = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-    private fun generateIntent() : PendingIntent {
+    private fun generateIntent(dayOfWeek : Int) : PendingIntent {
         return Intent(context, AlarmReceiver::class.java).let { intent ->
             intent.action = "ALARM_TRIGGERED"
-            intent.data = Uri.parse("custom://alarm_${alarm.alarmTime}")
+            intent.data = Uri.parse("custom://alarm_${alarm.alarmTime}_${dayOfWeek}")
             intent.putExtra("ALARM_TIME", alarm.alarmTime)
             PendingIntent.getBroadcast(context, 0, intent, 0)
         }
     }
 
 
-    fun setAlarm() {
+    fun setAlarm(dayOfWeek : Int) {
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
             set(Calendar.HOUR_OF_DAY, alarm.alarmTime.split(':').first().toInt())
             set(Calendar.MINUTE,  alarm.alarmTime.split(':').last().toInt())
+            set(Calendar.DAY_OF_WEEK, dayOfWeek)
+        }
+
+        if(calendar.before(Calendar.getInstance())) {
+            calendar.add(Calendar.DATE, 7)
         }
 
         alarmMgr?.setRepeating(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,
-            1000 * 60 * 1440,
-            generateIntent()
+            AlarmManager.INTERVAL_DAY,
+            generateIntent(dayOfWeek)
         )
 
         Log.d(TAG, "AlarmManager SET for ${alarm.alarmTime}")
     }
 
-    fun cancelAlarm() {
-        alarmMgr?.cancel(generateIntent())
+    fun cancelAlarm(dayOfWeek : Int) {
+        alarmMgr?.cancel(generateIntent(dayOfWeek))
         Log.d(TAG, "AlarmManager CANCELLED for ${alarm.alarmTime}")
-
     }
 }

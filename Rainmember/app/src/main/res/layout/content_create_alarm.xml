@@ -13,9 +13,9 @@
         android:id="@+id/alarm_time_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:contentDescription="Alarm time picker"
-        />
+        android:background="@color/colorAccent"
+        android:headerBackground="@color/colorPrimary" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,56 +27,68 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="mon"
-            android:contentDescription="Mondays checkbox"
-            />
+            android:contentDescription="Monday checkbox"
+            android:color="@color/colorPrimaryDark"
+            android:text="@string/monday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_tuesday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="Tuesdays checkbox"
-            android:text="tue" />
+            android:contentDescription="Tuesday checkbox"
+            android:color="@color/colorPrimaryDark"
+            android:text="@string/tuesday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_wednesday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="Wednesdays checkbox"
-            android:text="wed" />
+            android:contentDescription="Wednesday checkbox"
+            android:text="@string/wednesday"
+            app:buttonTint="@color/colorPrimaryDark" />
 
         <CheckBox
             android:id="@+id/checkBox_thursday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="Thursdays checkbox"
-            android:text="thu" />
+            android:contentDescription="Thursday checkbox"
+            android:color="@color/colorPrimaryDark"
+            android:text="@string/thursday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_friday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="Fridays checkbox"
-            android:text="fri" />
+            android:contentDescription="Friday checkbox"
+            android:color="@color/colorPrimaryDark"
+            android:text="@string/friday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_saturday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="Saturdays checkbox"
-            android:text="sat" />
+            android:contentDescription="Saturday checkbox"
+            android:color="@color/colorPrimaryDark"
+            android:text="@string/saturday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_sunday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="Sundays checkbox"
-            android:text="sun" />
+            android:contentDescription="Sunday checkbox"
+            android:color="@color/colorPrimaryDark"
+            android:text="@string/sunday"
+            app:buttonTint="@color/colorPrimaryDark"/>
     </LinearLayout>
 </LinearLayout>

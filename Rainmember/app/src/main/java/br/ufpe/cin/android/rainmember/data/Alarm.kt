@@ -36,4 +36,31 @@ class Alarm (
 
         return weekdays.joinToString(separator = ", ")
     }
+
+    fun weekDaysArray() : ArrayList<Int> {
+        var weekdays = ArrayList<Int>(7)
+
+        // Monday
+        if ((1 and alarmDates) != 0) weekdays.add(1)
+
+        // Tuesday
+        if ((2 and alarmDates) != 0) weekdays.add(2)
+
+        // Wednesday
+        if ((4 and alarmDates) != 0) weekdays.add(3)
+
+        // Thursday
+        if ((8 and alarmDates) != 0) weekdays.add(4)
+
+        // Friday
+        if ((16 and alarmDates) != 0) weekdays.add(5)
+
+        // Saturday
+        if ((32 and alarmDates) != 0) weekdays.add(6)
+
+        // Sunday
+        if ((64 and alarmDates) != 0) weekdays.add(7)
+
+        return weekdays
+    }
 }
