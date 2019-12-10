@@ -11,6 +11,8 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.preference.PreferenceManager
 import br.ufpe.cin.android.rainmember.MainActivity
 import br.ufpe.cin.android.rainmember.R
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.AlarmDB
+import org.jetbrains.anko.doAsync
 
 
 class AlarmReceiver : BroadcastReceiver() {
@@ -19,13 +21,32 @@ class AlarmReceiver : BroadcastReceiver() {
     }
 
     override fun onReceive(context: Context, intent: Intent) {
-        Log.d(TAG, "ALARM TRIGGERED AT: ${intent.extras!!["ALARM_TIME"]}")
+        if (intent.action == "android.intent.action.BOOT_COMPLETED") {
+            doAsync {
+                val db = AlarmDB.getDatabase(context.applicationContext)
 
-        var notification = buildNotification(context, intent)
+                val alarmsList = db.alarmDAO().getAll()
 
-        with(NotificationManagerCompat.from(context.applicationContext)) {
-            // notificationId is a unique int for each notification that you must define
-            notify(1, notification.build())
+                if(alarmsList.isNotEmpty()){
+                    for(alarm in alarmsList){
+                        var alarmConfig = AlarmLogic(context = context.applicationContext, alarm = alarm)
+                        val alarmDays = alarm.weekDaysArray()
+
+                        for( dayOfWeek in alarmDays){
+                            alarmConfig.setAlarm(dayOfWeek)
+                        }
+                    }
+                }
+            }
+        } else {
+            Log.d(TAG, "ALARM TRIGGERED AT: ${intent.extras!!["ALARM_TIME"]}")
+
+            var notification = buildNotification(context, intent)
+
+            with(NotificationManagerCompat.from(context.applicationContext)) {
+                // notificationId is a unique int for each notification that you must define
+                notify(1, notification.build())
+            }
         }
     }
 
