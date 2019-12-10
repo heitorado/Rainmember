@@ -3,11 +3,13 @@
     android:id="@+id/location_text_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginRight="10sp"
     android:orientation="vertical"
     android:paddingLeft="10sp"
     android:paddingTop="20sp"
     android:paddingRight="10sp"
-    android:paddingBottom="20sp">
+    android:paddingBottom="20sp"
+    android:layout_marginEnd="10sp">
 
     <TextView
         android:id="@+id/location_info_text"
