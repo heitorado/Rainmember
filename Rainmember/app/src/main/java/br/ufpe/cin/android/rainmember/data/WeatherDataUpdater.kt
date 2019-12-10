@@ -5,9 +5,7 @@ class WeatherDataUpdater : WeatherApi {
     private val weatherApi : WeatherApi = OpenWeatherApi("")
     private val uvApi : WeatherApi = OpenUVApi("")
 
-
     override fun getWeatherForecast(latitude: Double, longitude: Double): List<WeatherData> {
-
         return weatherApi.getWeatherForecast(latitude, longitude)
     }
 

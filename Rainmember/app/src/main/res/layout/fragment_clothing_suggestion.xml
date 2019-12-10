@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="15sp">
+    android:layout_margin="15sp"
+    android:backgroundTint="@color/colorClothingSuggestions">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,15 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="16sp"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/header_size"
             android:text="@string/clothing_suggestions_component" />
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10sp"
-            android:background="?android:attr/listDivider" />
 
         <LinearLayout
             app:layout_constraintLeft_toLeftOf="parent"
@@ -54,16 +49,16 @@
                     app:layout_constraintStart_toEndOf="@+id/action_text"
                     app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
+
         <TextView
             android:id="@+id/suggestion_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15sp"
-            android:layout_marginBottom="15sp"
-            android:layout_marginRight="15sp"
-            android:textSize="16dp"
+            android:layout_margin="15sp"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/colorAccent"
             android:gravity="center_horizontal|center_vertical"
-            android:text="Remember to put sunscreen today!"
+            android:text="Clothing suggestion placeholder"
             app:fontFamily="@font/roboto_light" />
 
 

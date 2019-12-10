@@ -3,4 +3,9 @@
     <color name="colorPrimary">#00062e</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="colorUmbrella">#33658A</color>
+    <color name="colorSunscreen">#F6AE2D</color>
+    <color name="colorLifeSuggestions">#55DDE0</color>
+    <color name="colorClothingSuggestions">#E71D36</color>
+    <color name="colorQuoteOfTheDay">#CFD11A</color>
 </resources>

@@ -4,81 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/colorPrimary">
 
-    <TextView
-        android:id="@+id/currentLocation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:layout_marginTop="5sp"
-        android:layout_marginRight="2.5sp"
-        android:drawableStart="@drawable/quickinfo_gps_fixed_24px"
-        android:drawableLeft="@drawable/quickinfo_gps_fixed_24px"
-        android:drawablePadding="10sp"
-        android:gravity="center|start"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/currentTemperature"
-        app:layout_constraintEnd_toStartOf="@+id/currentWeather"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="5sp"
-        android:layout_marginEnd="2.5sp" />
-
-    <TextView
-        android:id="@+id/currentTemperature"
-        android:layout_width="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/navigation_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5sp"
-        android:layout_marginRight="2.5sp"
-        android:drawableStart="@drawable/quickinfo_thermostat_24px"
-        android:drawableLeft="@drawable/quickinfo_thermostat_24px"
-        android:drawablePadding="10sp"
-        android:gravity="center|start"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
-        app:layout_constraintEnd_toStartOf="@+id/currentUv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentLocation"
-        android:layout_marginStart="5sp"
-        android:layout_marginEnd="2.5sp" />
+        android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/currentWeather"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="2.5sp"
-        android:layout_marginTop="5sp"
-        android:layout_marginRight="5sp"
-        android:drawableStart="@drawable/quickinfo_cloud_queue_24px"
-        android:drawableLeft="@drawable/quickinfo_cloud_queue_24px"
-        android:drawablePadding="10sp"
-        android:gravity="center|start"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/currentUv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/currentLocation"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="2.5sp"
-        android:layout_marginEnd="5sp" />
+        <TextView
+            android:id="@+id/currentLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/quickinfo_gps_fixed_24px"
+            android:drawableLeft="@drawable/quickinfo_gps_fixed_24px"
+            android:drawablePadding="10sp"
+            android:gravity="center|start"
+            android:textColor="@color/colorAccent"
+            android:text="Location"
+            app:layout_constraintBottom_toTopOf="@+id/currentTemperature"
+            app:layout_constraintEnd_toStartOf="@+id/currentWeather"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="16sp"
+            android:drawableTint="@color/colorAccent"
+            />
 
-    <TextView
-        android:id="@+id/currentUv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="2.5sp"
-        android:layout_marginRight="5sp"
-        android:drawableStart="@drawable/quickinfo_brightness_high_24px"
-        android:drawableLeft="@drawable/quickinfo_brightness_high_24px"
-        android:drawablePadding="10sp"
-        android:gravity="center|start"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/currentTemperature"
-        app:layout_constraintTop_toBottomOf="@+id/currentWeather"
-        android:layout_marginStart="2.5sp"
-        android:layout_marginEnd="5sp" />
+        <TextView
+            android:id="@+id/currentTemperature"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:drawableStart="@drawable/quickinfo_thermostat_24px"
+            android:drawableLeft="@drawable/quickinfo_thermostat_24px"
+            android:drawablePadding="10sp"
+            android:gravity="center|start"
+            android:text="Temperature"
+            app:layout_constraintEnd_toStartOf="@+id/currentUv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentLocation"
+            android:drawableTint="@color/colorAccent"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/currentWeather"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/colorAccent"
+            android:drawableStart="@drawable/quickinfo_cloud_queue_24px"
+            android:drawableLeft="@drawable/quickinfo_cloud_queue_24px"
+            android:drawablePadding="10sp"
+            android:drawableTint="@color/colorAccent"
+            android:gravity="center|start"
+            android:text="Weather"
+            app:layout_constraintBottom_toTopOf="@+id/currentUv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentLocation"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/currentUv"
+            android:textColor="@color/colorAccent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/quickinfo_brightness_high_24px"
+            android:drawableLeft="@drawable/quickinfo_brightness_high_24px"
+            android:drawablePadding="10sp"
+            android:gravity="center|start"
+            android:text="UV Data"
+            android:drawableTint="@color/colorAccent"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/currentWeather"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_view"

@@ -13,8 +13,7 @@ class OpenUVApi (private val apiKey: String) : WeatherApi {
     private val client = OkHttpClient()
 
     override fun getWeatherForecast(latitude: Double, longitude: Double): List<WeatherData> {
-
-        return ArrayList<WeatherData>(0)
+        return ArrayList(0)
     }
 
     override fun getCurrentWeather(latitude: Double, longitude: Double): WeatherData {
