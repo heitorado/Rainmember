@@ -8,6 +8,7 @@
     android:background="@color/colorPrimary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/navigation_view"
@@ -100,7 +101,7 @@
         app:itemTextColor="@color/colorAccent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/currentTemperature"
+        app:layout_constraintTop_toBottomOf="@id/header"
         app:menu="@menu/navigation" />
 
     <FrameLayout

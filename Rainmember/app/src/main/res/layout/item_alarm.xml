@@ -17,6 +17,7 @@
             android:layout_marginLeft="14sp"
             android:layout_marginRight="14sp"
             android:text="06:30"
+            android:textColor="@color/colorAccent"
             android:textSize="52sp"
             app:fontFamily="monospace" />
 
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="14sp"
             android:layout_marginRight="14sp"
+            android:textColor="@color/colorAccent"
             android:text="seg, ter, qua, qui, sex, sab, dom"
             android:textSize="18sp" />
 
