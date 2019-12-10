@@ -27,7 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:color="@color/colorPrimaryDark"
-            android:text="@string/monday" />
+            android:text="@string/monday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_tuesday"
@@ -35,15 +36,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:color="@color/colorPrimaryDark"
-            android:text="@string/tuesday" />
+            android:text="@string/tuesday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_wednesday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:color="@color/colorPrimaryDark"
-            android:text="@string/wednesday" />
+            android:text="@string/wednesday"
+            app:buttonTint="@color/colorPrimaryDark" />
 
         <CheckBox
             android:id="@+id/checkBox_thursday"
@@ -51,7 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:color="@color/colorPrimaryDark"
-            android:text="@string/thursday" />
+            android:text="@string/thursday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_friday"
@@ -59,7 +62,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:color="@color/colorPrimaryDark"
-            android:text="@string/friday" />
+            android:text="@string/friday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_saturday"
@@ -67,7 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:color="@color/colorPrimaryDark"
-            android:text="@string/saturday" />
+            android:text="@string/saturday"
+            app:buttonTint="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBox_sunday"
@@ -75,6 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:color="@color/colorPrimaryDark"
-            android:text="@string/sunday" />
+            android:text="@string/sunday"
+            app:buttonTint="@color/colorPrimaryDark"/>
     </LinearLayout>
 </LinearLayout>
