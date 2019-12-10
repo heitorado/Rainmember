@@ -38,12 +38,12 @@ class MainActivity : AppCompatActivity() {
 
     private val climateInfoChangeReceiver = object: BroadcastReceiver() {
         val intentFilter : IntentFilter
-        get() {
-            val iFilter = IntentFilter()
-            iFilter.addAction(applicationContext.getString(R.string.weather_data_change))
+            get() {
+                val iFilter = IntentFilter()
+                iFilter.addAction(applicationContext.getString(R.string.weather_data_change))
 
-            return iFilter
-        }
+                return iFilter
+            }
 
         override fun onReceive(ctx: Context?, intent: Intent?) {
             updateClimateInfoSection( applicationContext )
