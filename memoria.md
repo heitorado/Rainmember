@@ -3,8 +3,13 @@
 ## Leak Canary
 TODO
 
-## Android Profiler
-TODO
+## Memory Profiler
+Ao rodar o aplicativo em um device real com o profiler, percebemos que ao tentar ler um arquivo json de 10mb (arquivo que armazena cidades para a comparação) a aplicação ficava parada. Ao análisar os logs e a utilizar a ferramenta de debug, descobrimos que após rodar a seguinte linha:
+
+```kotlin
+    var countriesJSON = JSONArray(countryCodesFile.readText())
+```
+O aplicativo ficava preso executando o garbage collector, daí percebemos que ao tentar criar um array de jsons com uma quantidade tão grande de elementos, esgotavamos a heap estipulada para o aplicativo em dado device, o que fazia com que o aplicativo ficasse preso em GC. Para resolver isso, decidimos reduzir a lista de cidades, se limitando a apenas capitais.
 
 ## Leak Patterns
 
