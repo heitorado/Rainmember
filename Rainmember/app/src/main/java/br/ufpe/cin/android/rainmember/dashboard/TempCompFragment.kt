@@ -26,14 +26,11 @@ class TempCompFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d (TAG, "Created")
-
         val view = inflater.inflate(R.layout.fragment_temperature_comparison, container,false)
         val cityIdPref = PreferenceManager.getDefaultSharedPreferences(activity?.applicationContext).getString(getString(R.string.location_comp_preference), getString(R.string.location_comp_preference_default_value))
 
         val card = view.findViewById<View>(R.id.card_temperature_comparison)
         card.setOnClickListener {
-            Log.d(TAG, "Temperature Comparison Card Clicked")
             chooseLocationToCompare()
         }
 

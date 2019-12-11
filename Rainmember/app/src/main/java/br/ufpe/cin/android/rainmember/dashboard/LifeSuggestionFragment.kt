@@ -22,8 +22,6 @@ class LifeSuggestionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d (TAG, "Created")
-
         val db = WeatherDataDB.getDatabase(activity?.applicationContext!!)
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()
@@ -51,8 +49,6 @@ class LifeSuggestionFragment : Fragment() {
                     (weatherData.weatherCode == 762 || weatherData.weatherCode == 781)
 
                 var suggestions = ArrayList<String>()
-
-                Log.d(TAG, weatherData.toString())
 
                 val currentTemp = weatherData.temperature.toInt()
 

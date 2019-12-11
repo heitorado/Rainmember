@@ -32,8 +32,6 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
 
     override fun doWork(): Result {
 
-        Log.d(TAG, "Worker BOOTING")
-
         val locationManager = applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
         if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -54,13 +52,8 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
 
     private fun fetchWeatherDataForCurrentLocation( location : Location?) {
         if(location == null) {
-            Log.d(TAG, "Location UNAVAILABLE")
             return
         }
-
-        Log.d(TAG, "Fetching CURRENT data for:")
-        Log.d (TAG, "Lat: ${location.latitude}")
-        Log.d (TAG, "Lon: ${location.longitude}")
 
         val data = weatherApi.getCurrentWeather(location.latitude, location.longitude, applicationContext.getString(R.string.flag_current))
 
@@ -75,12 +68,8 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
 
     private fun fetchWeatherDataForComparisonLocation ( city_id : String? ) {
         if(city_id == null || city_id == applicationContext.getString(R.string.location_comp_preference_default_value)) {
-            Log.d(TAG, "City UNAVAILABLE")
             return
         }
-
-        Log.d(TAG, "Fetching COMPARISON data for:")
-        Log.d (TAG, "CITY_ID: $city_id")
 
         val data = weatherApi.getWeatherByCityId(city_id, applicationContext.getString(R.string.flag_comparison))!!
 
@@ -104,11 +93,8 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
             client.newCall(request).execute().use { res ->
                 if(res.body != null) {
                     countryCodesFile.appendText(res.body!!.string())
-                    //Log.d(TAG, res.body!!.string())
                 }
             }
-
-            Log.d(TAG, "Downloaded Country Code Data from Github!")
         }
     }
 }

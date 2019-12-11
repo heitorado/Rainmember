@@ -33,8 +33,6 @@ class LocationAdapter(private val items: List<String>, private val c: Context, p
         holder.country_info?.text = "${i.split('|').first()} - ${i.split('|')[1]}"
 
         holder.itemView.location_text_container.setOnClickListener {
-            Log.d(TAG, "Clicou no item da localização")
-
             var sharedPref = PreferenceManager.getDefaultSharedPreferences(this.c.applicationContext)
             sharedPref.edit {
                 this.putString(c.getString(R.string.location_comp_preference), i.split("|").last())

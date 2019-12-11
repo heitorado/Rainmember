@@ -25,7 +25,6 @@ class OpenUVApi (private val apiKey: String) : WeatherApi {
 
         client.newCall(request).execute().use { response ->
             val responseString = response.body!!.string()
-            Log.d ("OpenUVApi", responseString )
             val body = JSONObject(responseString)
 
             return jsonToWeatherData(body)

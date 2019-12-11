@@ -35,8 +35,6 @@ class AlarmsFragment : Fragment() {
 
         // Floating button that starts the activity for alarm creation
         view.add_alarm.setOnClickListener {
-            Log.d(TAG, "floating button clicked!")
-
             val ctx = this.context!!.applicationContext
             val createAlarmIntent = Intent(ctx, CreateAlarmActivity::class.java)
 
@@ -59,8 +57,6 @@ class AlarmsFragment : Fragment() {
         view.alarmRecyclerView.layoutManager = LinearLayoutManager(this.context)
         view.alarmRecyclerView.adapter = AlarmAdapter(alarmList, this.context!!.applicationContext)
         view.alarmRecyclerView.addItemDecoration(DividerItemDecoration(this.context, LinearLayoutManager.VERTICAL))
-
-        Log.d(TAG, "Created")
 
         return view
     }

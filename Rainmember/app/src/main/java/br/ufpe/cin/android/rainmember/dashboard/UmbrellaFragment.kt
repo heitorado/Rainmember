@@ -29,8 +29,6 @@ class UmbrellaFragment : Fragment () {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d (TAG, "Created")
-
         val view= inflater.inflate(R.layout.fragment_umbrella, container,false)
 
         doAsync {
@@ -41,14 +39,12 @@ class UmbrellaFragment : Fragment () {
             if(weatherData != null) {
                 uiThread {
                     val weatherCondition = weatherData.condition
-                    Log.d (TAG, weatherCondition)
 
                     if (bringUmbrellaConditions.contains(weatherCondition)) {
                         view.action_text.text = "YES"
                         view.action_image.setBackgroundResource(R.drawable.umbrella_yes)
                     }
                 }
-                Log.d (TAG, weatherData.temperature.toString())
             }
         }
 

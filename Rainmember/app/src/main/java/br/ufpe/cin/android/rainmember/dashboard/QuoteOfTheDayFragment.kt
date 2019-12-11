@@ -27,7 +27,6 @@ class QuoteOfTheDayFragment : Fragment() {
 
         val quote = quoteArray[getIndexBasedOnCurrentDate(quoteArray.size)]
 
-        Log.d (TAG, quote)
         view.quote_message.text = quote
 
         return view

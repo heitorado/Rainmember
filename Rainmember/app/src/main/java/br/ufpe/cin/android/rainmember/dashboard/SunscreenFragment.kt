@@ -22,8 +22,6 @@ class SunscreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d (TAG, "Created")
-
         val db = WeatherDataDB.getDatabase(activity?.applicationContext!!)
         doAsync {
             val weatherData = db.weatherDataDAO().getLatest()
@@ -34,8 +32,6 @@ class SunscreenFragment : Fragment() {
 
 
             if(weatherData != null) {
-                Log.d(TAG, weatherData.toString())
-
                 if (weatherData.currentUv <= 2.9) {
                     hintText = getString(R.string.sunscreen_dont_need)
                     res = resourceNo

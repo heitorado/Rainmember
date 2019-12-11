@@ -62,32 +62,17 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
                     var alarmConfig = AlarmLogic(context = it.context, alarm = updatedAlarm)
                     val alarmDays = updatedAlarm.weekDaysArray()
                     if (updatedAlarm.active) {
-                        Log.d(TAG, "Requesting ALARM SET for ${updatedAlarm.alarmTime}")
                         for( i in 0 until alarmDays.size){
                             alarmConfig.setAlarm(alarmDays[i])
                         }
                     }
                     else {
-                        Log.d(TAG, "Requesting ALARM CANCEL for ${updatedAlarm.alarmTime}")
                         for( i in 0 until alarmDays.size){
                             alarmConfig.cancelAlarm(alarmDays[i])
                         }
                     }
                 }
             }
-        }
-
-        holder.itemView.alarm_edit.setOnClickListener {
-
-            Log.d("AlarmAdapter", "Clicou no alarme")
-
-            //val createAlarmIntent = Intent(c, CreateAlarmActivity::class.java)
-
-            // Not really sure why this flag is needed, but it makes the app work as intended.
-            //createAlarmIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-
-            // Start the new activity with the provided intent and layout
-            //c.startActivity(createAlarmIntent)
         }
     }
 
