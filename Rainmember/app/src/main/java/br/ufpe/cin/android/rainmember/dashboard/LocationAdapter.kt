@@ -2,11 +2,13 @@ package br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.dashboard
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.edit
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import br.ufpe.cin.android.rainmember.R
@@ -36,8 +38,12 @@ class LocationAdapter(private val items: List<String>, private val c: Context, p
             var sharedPref = PreferenceManager.getDefaultSharedPreferences(this.c.applicationContext)
             sharedPref.edit {
                 this.putString(c.getString(R.string.location_comp_preference), i.split("|").last())
-                this.apply()
+                this.commit()
             }
+
+            // Send broadcast to update dashboard
+            val intent = Intent(c.applicationContext.getString(R.string.dashboard_change))
+            LocalBroadcastManager.getInstance(c.applicationContext).sendBroadcast(intent)
 
             actv.finish()
         }
