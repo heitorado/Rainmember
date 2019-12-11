@@ -45,8 +45,6 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
             return Result.retry()
         }
 
-        downloadCountryCodesFile()
-
         return Result.success()
     }
 
@@ -80,21 +78,5 @@ class WeatherDataWorker (context: Context, workerParams: WorkerParameters) : Wor
         LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(
             Intent(applicationContext.getString(R.string.weather_data_change))
         )
-    }
-
-    private fun downloadCountryCodesFile () {
-        val countryCodesFile = File(this.ctx.filesDir.absolutePath, "countryCodes.json")
-
-        if(!countryCodesFile.exists()) {
-            val request = Request.Builder()
-                .url("https://raw.githubusercontent.com/heitorado/Rainmember/master/city.list.min.json")
-                .build()
-
-            client.newCall(request).execute().use { res ->
-                if(res.body != null) {
-                    countryCodesFile.appendText(res.body!!.string())
-                }
-            }
-        }
     }
 }

@@ -22,8 +22,12 @@ import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Weathe
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
 import br.ufpe.cin.android.rainmember.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.jetbrains.anko.ctx
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+import java.io.File
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -92,6 +96,11 @@ class MainActivity : AppCompatActivity() {
 
         createNotificationChannel()
 
+        doAsync {
+            val countryCodesFile = File(applicationContext.filesDir.absolutePath, "countryCodes.json")
+            if( !countryCodesFile.exists() ) downloadCountryCodesFile(countryCodesFile)
+        }
+
         setUpDataWorker()
 
         LocalBroadcastManager.getInstance(applicationContext)
@@ -113,6 +122,19 @@ class MainActivity : AppCompatActivity() {
         outState.putInt(CURRENT_SCREEN, currentScreen)
 
         super.onSaveInstanceState(outState)
+    }
+
+    private fun downloadCountryCodesFile ( countryCodesFile : File) {
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url("https://raw.githubusercontent.com/heitorado/Rainmember/master/city.list.min.json")
+            .build()
+
+        client.newCall(request).execute().use { res ->
+            if(res.body != null) {
+                countryCodesFile.appendText(res.body!!.string())
+            }
+        }
     }
 
     private fun createNotificationChannel() {
@@ -152,7 +174,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpPermissions () {
-        if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_FINE_LOCATION) !== PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this@MainActivity,
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 ACCESS_FINE_LOCATION_REQUEST_ID
