@@ -17,40 +17,31 @@ fun dataComponentFactory (context: Context?): List<Fragment> {
 
     var result= mutableListOf<Fragment>()
 
-    for (key in sharedPreferences?.all!!.iterator()) {
-            Log.d("dataComponentFactory", key.toString())
-    }
-
     if (sharedPreferences != null && context != null) {
 
         if (isActive(sharedPreferences, context.getString(R.string.umbrella_preference))) {
-            Log.d (TAG, "Add UmbrellaFragment")
             result.add(UmbrellaFragment())
         }
 
         if (isActive(sharedPreferences, context.getString(R.string.sunscreen_preference))) {
-            Log.d (TAG, "Add SunscreenFragment")
             result.add(SunscreenFragment())
         }
+
         if (isActive(sharedPreferences, context.getString(R.string.temp_comp_preference))) {
-            Log.d (TAG, "Add TempCompFragment")
             result.add(TempCompFragment())
         }
+
         if (isActive(sharedPreferences, context.getString(R.string.life_suggestion_preference))) {
-            Log.d (TAG, "Add LifeSuggestionFragment")
             result.add(LifeSuggestionFragment())
         }
         
         if (isActive(sharedPreferences, context.getString(R.string.clothing_suggestion_preference))) {
-            Log.d (TAG, "Add ClothingSuggestionFragment")
             result.add(ClothingSuggestionFragment())
         }
 
         if (isActive(sharedPreferences, context.getString(R.string.quote_of_the_day_preference))) {
-            Log.d (TAG, "Add QuoteOfTheDayFragment")
             result.add(QuoteOfTheDayFragment())
         }
-
     }
 
     return result

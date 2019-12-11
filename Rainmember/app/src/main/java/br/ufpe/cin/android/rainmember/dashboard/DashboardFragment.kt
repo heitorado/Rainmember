@@ -23,8 +23,6 @@ class DashboardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG, "Created")
-
         dataComponents = dataComponentFactory(context)
 
         addComponents()

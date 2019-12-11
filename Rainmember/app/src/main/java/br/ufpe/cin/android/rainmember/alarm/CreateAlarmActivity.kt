@@ -44,34 +44,16 @@ class CreateAlarmActivity : AppCompatActivity() {
                 val intent = Intent(applicationContext.getString(R.string.dashboard_change))
                 LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
 
-                Log.d(TAG, "Alarm created")
-
                 // Finish activity
                 this.finish()
             } else {
                 Snackbar.make(view, "Error creating alarm!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show()
-                Log.d(TAG, "Error creating alarm")
             }
-
-
         }
 
         alarm_time_picker.setIs24HourView(true)
 
-        alarm_time_picker.setOnTimeChangedListener { _: TimePicker, i: Int, i1: Int ->
-            Log.d(TAG, "Time selector changed")
-            Log.d(TAG, i.toString())
-            Log.d(TAG, i1.toString())
-            // Experimental
-            //saveAlarmSettings(timePicker.rootView)
-        }
-
-        checkBox_monday.setOnClickListener {
-            Log.d(TAG, "Monday checkbox clicked")
-            // Experimental
-            // saveAlarmSettings(it.rootView)
-        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

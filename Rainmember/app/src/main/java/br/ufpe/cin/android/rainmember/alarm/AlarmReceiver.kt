@@ -39,8 +39,6 @@ class AlarmReceiver : BroadcastReceiver() {
                 }
             }
         } else {
-            Log.d(TAG, "ALARM TRIGGERED AT: ${intent.extras!!["ALARM_TIME"]}")
-
             var notification = buildNotification(context, intent)
 
             with(NotificationManagerCompat.from(context.applicationContext)) {

@@ -23,7 +23,6 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
         client.newCall(request).execute().use { response ->
             val responseString = response.body!!.string()
 
-            Log.d ("OpenWeatherApi", responseString )
             val body = JSONObject(responseString)
 
             val forecastList = body.getJSONArray("list")
@@ -43,7 +42,6 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
 
         client.newCall(request).execute().use { response ->
             val responseString = response.body!!.string()
-            Log.d ("OpenWeatherApi", responseString )
             val body = JSONObject(responseString)
 
             return jsonToWeatherData(body)
@@ -57,7 +55,6 @@ class OpenWeatherApi (private val appId: String) : WeatherApi {
 
         client.newCall(request).execute().use { response ->
             val responseString = response.body!!.string()
-            Log.d ("OpenWeatherApi", responseString )
             val body = JSONObject(responseString)
 
             return jsonToWeatherData(body)
