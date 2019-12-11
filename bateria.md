@@ -14,3 +14,14 @@ Fizemos isso reduzindo e minificando o arquivo que tem os dados das cidades do c
 
 ### Tema de UI Escuro
 Mudamos o fundo da UI do aplicativo de branco para azul escuro, a fim de diminui a energia gastada para exibir a tela principal do aplicativo na tela.
+
+### Abrir Somente quando Necessário
+A feature de notificação tem sua base com o AlarmManager do Android, que, se usado incorretamente, pode drenar facilmente a bateria do dispositivo, visto que ele usa o mecanismo de "wake up", para ativar o dispositivo no horário determinado. Para garantir que isso só ocorra quando necessário, teve-se o cuidado de cadastrar o alarme com repetição apenas para os dias da semana que o usuário requisitou, além de verificar que caso a data/hora já tenha ocorrido na semana, agendar diretamente para a próxima, ao invés de criar e acionar o alarme desnecessariamente (conforme documentação do AlarmManager, ao criar um alarme com data no passado, ele é imediatamente executado).
+
+
+### Suprimir Logs
+Durante o desenvolvimento, naturalmente, fez-se uso extensivo de Logs com finalidade de debugar a aplicação. Para reduzir o consumo de bateria com uma tarefa desnecessária para a experiência do usuário com o aplicativo, refatoramos o APP para remover os logs desnecessários.
+
+
+### Operações em lote
+Como uma única tarefa que realiza tudo uma vez só é melhor do que várias tarefas periódicas, o app confia seu trabalho a um único Worker, que, quando acionado, recupera todos os dados de clima necessários, de uma vez só, para manter todos os componentes do aplicativo atualizados.
