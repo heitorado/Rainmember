@@ -19,7 +19,6 @@ We aim for simplicity. The app consists on one main screen with two tabs: *Alarm
 
 * **Alarms:** Here you can set up your favorite hours of your daily life to trigger some awesome music coupled with plenty of useful and customizable info about the weather of your location of choice. If you're not an early bird, you can choose to only display you a friendly and much more silent notification with the info you want.
 * **Dashboard:** Here is where the fun happens. From this screen you can configure what will appear on your configured alarms/notifications. We offer a broad set of pre-made components to attend your forecasting urges:
-  - 5 days temperature variation graph to a location of choice
   - Recommendation on how to dress for the weather for the given location
   - Umbrella or not umbrella? That is the question.
   - Recommendation on sunscreen or not, for that extra cancer prevention
@@ -44,10 +43,9 @@ We are two undergraduate students:
     - crappy puns.
   - [rafaelmotaalves](https://github.com/rafaelmotaalves), who takes care of:
     - Component Structure
-    - Dashboard '5 Days Temperature variation graph' component
     - Dashboard 'Dress recommendation' component
     - Dashboard 'Umbrella?' component
-    - Dashboard 'Jokes and Quotes' component
+    - Dashboard 'Quote of The Day' component
     - pun filtering.
 
 But all in all, everybody does a little bit of this and a little bit of that.
