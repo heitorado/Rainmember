@@ -11,8 +11,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -24,7 +22,6 @@ import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Weathe
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.WeatherDataDB
 import br.ufpe.cin.android.rainmember.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.contentView
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.util.*
@@ -41,12 +38,12 @@ class MainActivity : AppCompatActivity() {
 
     private val climateInfoChangeReceiver = object: BroadcastReceiver() {
         val intentFilter : IntentFilter
-        get() {
-            val iFilter = IntentFilter()
-            iFilter.addAction(applicationContext.getString(R.string.weather_data_change))
+            get() {
+                val iFilter = IntentFilter()
+                iFilter.addAction(applicationContext.getString(R.string.weather_data_change))
 
-            return iFilter
-        }
+                return iFilter
+            }
 
         override fun onReceive(ctx: Context?, intent: Intent?) {
             updateClimateInfoSection( applicationContext )

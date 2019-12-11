@@ -1,5 +1,6 @@
 package br.ufpe.cin.android.rainmember.alarm
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.widget.TimePicker
 import androidx.annotation.RequiresApi
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import br.ufpe.cin.android.rainmember.R
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.alarm.AlarmLogic
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Alarm
@@ -35,16 +37,24 @@ class CreateAlarmActivity : AppCompatActivity() {
             var resultText : String
 
             if(validAlarmConfig(view.rootView)){
+                // Save alarm
                 saveAlarmSettings(view.rootView)
-                resultText = "Alarm created successfully!"
+
+                // Send broadcast to update alarmlist on dashboard
+                val intent = Intent(applicationContext.getString(R.string.dashboard_change))
+                LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
+
                 Log.d(TAG, "Alarm created")
+
+                // Finish activity
+                this.finish()
             } else {
-                resultText = "Error! Select at least one day of the week!"
+                Snackbar.make(view, "Error creating alarm!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
                 Log.d(TAG, "Error creating alarm")
             }
 
-            Snackbar.make(view, resultText, Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+
         }
 
         alarm_time_picker.setIs24HourView(true)
@@ -79,8 +89,11 @@ class CreateAlarmActivity : AppCompatActivity() {
             val createdAlarm = db.alarmDAO().getAlarm(al.alarmTime)
 
             if(createdAlarm != null){
+                val alarmDays = createdAlarm.weekDaysArray()
                 var alarmConfig = AlarmLogic(context = applicationContext, alarm = createdAlarm)
-                alarmConfig.setAlarm()
+                for( i in 0 until alarmDays.size){
+                    alarmConfig.setAlarm(alarmDays[i])
+                }
             }
         }
 

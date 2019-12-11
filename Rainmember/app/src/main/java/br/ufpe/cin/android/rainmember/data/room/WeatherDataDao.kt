@@ -14,6 +14,9 @@ interface WeatherDataDao {
     @Query("SELECT * FROM weatherData")
     fun getAll(): Array<WeatherData>
 
-    @Query("SELECT * FROM weatherData ORDER BY datetime DESC LIMIT 1")
+    @Query("SELECT * FROM weatherData WHERE dataTag LIKE 'CURRENT' ORDER BY datetime DESC LIMIT 1")
     fun getLatest() : WeatherData?
+
+    @Query("SELECT * FROM weatherData WHERE dataTag LIKE 'COMPARISON' ORDER BY datetime DESC LIMIT 1")
+    fun getLatestComparation() : WeatherData?
 }

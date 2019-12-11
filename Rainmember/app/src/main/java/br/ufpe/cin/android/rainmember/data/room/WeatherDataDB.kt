@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.*
 import br.ufpe.cin.android.rainmember.data.WeatherData
 
-@Database(entities = [WeatherData::class], version = 3)
+@Database(entities = [WeatherData::class], version = 4)
 @TypeConverters(Converters::class)
 abstract class WeatherDataDB : RoomDatabase() {
     abstract fun weatherDataDAO(): WeatherDataDao

@@ -15,6 +15,7 @@ class WeatherData (
     val weatherCode: Int,
     val currentUv: Double,
     val maxUv : Double,
+    var dataTag: String,
     @PrimaryKey val datetime: Date
 ) {
     override fun toString(): String {

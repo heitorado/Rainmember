@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="14sp"
             android:layout_marginRight="14sp"
-            android:text="06:30"
+            android:text="@string/alarm_item_time_placeholder"
             android:textColor="@color/colorAccent"
             android:textSize="52sp"
             app:fontFamily="monospace" />
@@ -28,7 +28,7 @@
             android:layout_marginLeft="14sp"
             android:layout_marginRight="14sp"
             android:textColor="@color/colorAccent"
-            android:text="seg, ter, qua, qui, sex, sab, dom"
+            android:text="@string/alarm_item_days_placeholder"
             android:textSize="18sp" />
 
     </LinearLayout>
@@ -41,6 +41,6 @@
         android:layout_marginRight="28sp"
         android:layout_weight="1"
         android:layout_marginEnd="28sp"
-        android:contentDescription="Set alarm switch"/>
+        android:contentDescription="@string/set_alarm_switch_description"/>
 
 </LinearLayout>
