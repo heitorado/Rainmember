@@ -9,7 +9,7 @@ Ao rodar o aplicativo em um device real com o profiler, percebemos que ao tentar
 ```kotlin
     var countriesJSON = JSONArray(countryCodesFile.readText())
 ```
-O aplicativo ficava preso executando o garbage collector, daí percebemos que ao tentar criar um array de jsons com uma quantidade tão grande de elementos, esgotavamos a heap estipulada para o aplicativo em dado device, o que fazia com que o aplicativo ficasse preso em GC. Para resolver isso, decidimos reduzir a lista de cidades, se limitando a apenas capitais.
+O aplicativo ficava preso executando o garbage collector, daí percebemos que ao tentar criar um array de jsons com uma quantidade tão grande de elementos, esgotavamos a heap estipulada para o aplicativo em dado device, o que fazia com que o aplicativo ficasse preso em GC. Para resolver isso, decidimos reduzir a lista de cidades, se limitando a apenas capitais do mundo e as cidades do Brasil.
 
 ## Leak Patterns
 
