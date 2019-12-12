@@ -1,6 +1,8 @@
 # Rainmember
 *Remember remember, the rain of november* - A smart and helpful weather forecast Android app, written in Kotlin.
 
+Watch the demo video [here](https://youtu.be/p-cxoxHUKuI)
+
 ### What is Rainmember?
 Rainmember is an Android app that shows you weather forecasts - but in a smart way. It can show you a clear comparative of weather between your current city and another one you choose and store/display weather data so you can plan yourself better. It can also recommend you clothing suitable for the day when your alarm rings, and remember you to dress appropriately via notifications.
 
