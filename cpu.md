@@ -19,7 +19,7 @@ Como o título diz, não usamos exceptions para controlar o fluxo da aplicação
 Como o título diz, não utilizamos o for loop, preferindo o for-each sempre que necessário iterar sobre os elementos.
 
 ### Use profilers to profile performance
-TODO
+Ao utilizar o aplicativo, análisando os daods de CPU, tivemos o resultado esperado, com picos de CPUs apenas quando o worker está sendo executado e quando é trocada a configuração dos componentes 
 
 ### Use libraries
 Como já mencionado anteriormente, fizemos uso das bibliotecas Anko e Room.

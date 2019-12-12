@@ -1,5 +1,8 @@
 # Consumo de bateria
 
+## Battery Profiler
+Não detectamos nenhuma anomalia no uso de bateria, com o nível de gasto sempre se mantendo a baixo de "light".
+
 ## Patterns
 Para economizar energia utilizamos alguns dos principais patterns apresentados em [energy-patterns](https://github.com/if710/if710.github.io/blob/master/2019-10-25/energy-patterns.pdf):
 
