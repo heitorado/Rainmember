@@ -11,7 +11,11 @@ import androidx.core.content.edit
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
 import br.ufpe.cin.android.rainmember.R
+import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.WeatherDataWorker
+import br.ufpe.cin.android.rainmember.data.WeatherData
 import kotlinx.android.synthetic.main.item_location.view.*
 import org.jetbrains.anko.doAsync
 
@@ -45,6 +49,11 @@ class LocationAdapter(private val items: List<String>, private val c: Context, p
             val intent = Intent(c.applicationContext.getString(R.string.dashboard_change))
             LocalBroadcastManager.getInstance(c.applicationContext).sendBroadcast(intent)
 
+            // Start worker to quickly download comparison data
+            val fetchComparisonDataWorkRequest = OneTimeWorkRequest.Builder(WeatherDataWorker::class.java).build()
+            WorkManager.getInstance(c.applicationContext).enqueue(fetchComparisonDataWorkRequest)
+
+            // End the activity
             actv.finish()
         }
     }
