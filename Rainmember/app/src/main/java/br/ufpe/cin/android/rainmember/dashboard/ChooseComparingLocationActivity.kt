@@ -17,8 +17,9 @@ class ChooseComparingLocationActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "CompLocActivity"
-        val availableLocationsList = ArrayList<String>()
     }
+
+    private val availableLocationsList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
