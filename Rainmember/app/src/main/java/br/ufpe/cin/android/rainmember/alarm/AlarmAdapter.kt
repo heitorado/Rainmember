@@ -13,8 +13,9 @@ import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.Alarm
 import br.ufpe.cin.android.rainmember.br.ufpe.cin.android.rainmember.data.room.AlarmDB
 import kotlinx.android.synthetic.main.item_alarm.view.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
-class AlarmAdapter (private val items: List<Alarm>, private val c: Context): RecyclerView.Adapter<AlarmAdapter.ViewHolder>() {
+class AlarmAdapter (private val items: ArrayList<Alarm>, private val c: Context): RecyclerView.Adapter<AlarmAdapter.ViewHolder>() {
 
     companion object {
         const val TAG = "AlarmAdapter"
@@ -35,6 +36,28 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
         holder.alarm_time?.text = i.alarmTime
         holder.alarm_days?.text = i.alarmDays()
         holder.alarm_toggle.isChecked = i.active
+
+        // Here we set the listener for long-pressing the alarm, removing it from the DB.
+        holder.itemView.alarm_edit.setOnLongClickListener {
+            doAsync {
+                val db = AlarmDB.getDatabase(c.applicationContext)
+
+                val alarmToDelete = db.alarmDAO().getAlarm(i.alarmTime)
+
+                if(alarmToDelete != null) {
+                    db.alarmDAO().destroyAlarm(alarmToDelete)
+                    updateAlarmManager(alarmToDelete)
+                }
+
+                uiThread {
+                    items.removeAt(position)
+                    it.notifyItemRemoved(position)
+                    it.notifyItemRangeChanged(position, itemCount)
+                }
+            }
+
+            true
+        }
 
         // Here we set the alarm as active or inactive, updating in the db.
         holder.itemView.toggle_alarm_on.setOnClickListener {
@@ -58,20 +81,28 @@ class AlarmAdapter (private val items: List<Alarm>, private val c: Context): Rec
                         items[ind].active = switchStatus
                     }
 
-                    // Set or cancel the AlarmManager for this alarm
-                    var alarmConfig = AlarmLogic(context = it.context, alarm = updatedAlarm)
-                    val alarmDays = updatedAlarm.weekDaysArray()
-                    if (updatedAlarm.active) {
-                        for( i in 0 until alarmDays.size){
-                            alarmConfig.setAlarm(alarmDays[i])
-                        }
-                    }
-                    else {
-                        for( i in 0 until alarmDays.size){
-                            alarmConfig.cancelAlarm(alarmDays[i])
-                        }
+                    updateAlarmManager(updatedAlarm)
+
+                    uiThread {
+                        it.notifyDataSetChanged()
                     }
                 }
+            }
+        }
+    }
+
+    private fun updateAlarmManager(alarm : Alarm) {
+        // Set or cancel the AlarmManager for this alarm
+        var alarmConfig = AlarmLogic(context = c.applicationContext, alarm = alarm)
+        val alarmDays = alarm.weekDaysArray()
+        if (alarm.active) {
+            for( i in 0 until alarmDays.size){
+                alarmConfig.setAlarm(alarmDays[i])
+            }
+        }
+        else {
+            for( i in 0 until alarmDays.size){
+                alarmConfig.cancelAlarm(alarmDays[i])
             }
         }
     }

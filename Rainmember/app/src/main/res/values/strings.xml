@@ -129,4 +129,7 @@
     <string name="sunday_checkbox_description">Sunday checkbox</string>
     <string name="create_alarm_button_description">Create alarm button</string>
     <string name="umbrella_image_description">Umbrella image</string>
+
+    <!-- Other -->
+    <string name="alarm_explanation_text">Long press an alarm to delete it</string>
 </resources>
