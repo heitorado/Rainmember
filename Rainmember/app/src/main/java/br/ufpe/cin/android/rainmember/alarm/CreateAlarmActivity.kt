@@ -59,8 +59,8 @@ class CreateAlarmActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun saveAlarmSettings(v : View)  {
-        val h = v.alarm_time_picker.hour
-        val m = v.alarm_time_picker.minute
+        val h = v.alarm_time_picker.hour.toString().padStart(2, '0')
+        val m = v.alarm_time_picker.minute.toString().padStart(2, '0')
         val days = getCheckedDaysValue(v)
 
         val al = Alarm(true, days,"$h:$m")

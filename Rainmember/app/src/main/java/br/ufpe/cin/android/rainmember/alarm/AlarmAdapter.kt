@@ -77,14 +77,14 @@ class AlarmAdapter (private val items: ArrayList<Alarm>, private val c: Context)
                     val ind = items.indexOf( items.find {
                         it.alarmTime == updatedAlarm.alarmTime
                     } )
-                    if(ind > 0) {
+                    if(ind >= 0) {
                         items[ind].active = switchStatus
                     }
 
                     updateAlarmManager(updatedAlarm)
 
                     uiThread {
-                        it.notifyDataSetChanged()
+                        it.notifyItemChanged(ind)
                     }
                 }
             }

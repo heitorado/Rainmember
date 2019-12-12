@@ -12,7 +12,7 @@ interface AlarmDao {
     fun destroyAlarm (vararg alarmObjects: Alarm)
 
 
-    @Query("SELECT * FROM alarm")
+    @Query("SELECT * FROM alarm ORDER BY alarmTime ASC")
     fun getAll(): List<Alarm>
 
 
